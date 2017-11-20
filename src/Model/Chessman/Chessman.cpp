@@ -25,6 +25,22 @@ void Chessman::capture() {
   this->captured = true;
 }
 
-bool Chessman::isMoveValid(Board board, Move move) {
+Chessman::FigureType Chessman::getType() {
+  return this->type;
+}
+
+void Chessman::setType(Chessman::FigureType type) {
+  this->type = type;
+}
+
+Position Chessman::getCurrentPosition() {
+  return this->position;
+}
+
+void Chessman::setCurrentPosition(Position position) {
+  this->position = position;
+}
+
+bool Chessman::isMoveValid(Board* board, Move move) {
   return true;
 }

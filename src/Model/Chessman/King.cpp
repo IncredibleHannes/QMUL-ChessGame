@@ -2,6 +2,7 @@
 
 King::King(bool colour):Chessman(colour) {
   setValue(0);
+  setType(FigureType::King);
 }
 
 Move** King::getPossibleMoves(Board board) {
