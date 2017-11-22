@@ -5,11 +5,11 @@ King::King(bool colour):Chessman(colour) {
   setType(FigureType::King);
 }
 
-Move** King::getPossibleMoves(Board board) {
+std::list<Move> King::getPossibleMoves(Chessman*** board) {
   if(isCaptured()) {
-    return 0;
+    return NULL;
   } else {
 
   }
-  return 0;
+  return NULL;
 }

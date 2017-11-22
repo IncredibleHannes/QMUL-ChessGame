@@ -14,6 +14,8 @@ public:
   Board(Board& board, Move move);
 
   std::list<Move> getAllPossibleMoves(bool colour);
+  Chessman*** getBoard();
+  Chessman* getChessman(Position);
 
 private:
   // 2D array with chessman pointer
@@ -22,8 +24,7 @@ private:
 
   Chessman*** createStartBoard();
   bool applyMove(Move move);
-  Chessman*** getBoard();
-  Chessman* getChessman(Position);
+
 };
 
 #endif

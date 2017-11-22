@@ -6,7 +6,7 @@
 class King : public Chessman {
 public:
   King(bool colour);
-  Move** getPossibleMoves(Board board);
+  std::list<Move> getPossibleMoves(Chessman*** board);
 };
 
 #endif

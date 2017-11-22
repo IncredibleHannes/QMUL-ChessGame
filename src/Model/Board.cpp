@@ -2,7 +2,6 @@
 
 Board::Board(){
   this->board = createStartBoard();
-
 }
 
 Board::Board(Board& board, Move move){
@@ -34,11 +33,11 @@ Chessman* Board::getChessman(Position position) {
 }
 
 bool Board::applyMove(Move move) {
-  Chessman* currentChessman = getChessman(move.getOrigin());
-  if(currentChessman != 0 && currentChessman->isMoveValid(this, move)) {
-    this->board[move.getOrigin().getX()][move.getOrigin().getY()] = 0;
-    this->board[move.getTarget().getX()][move.getTarget().getY()] = currentChessman;
-    return true;
-  }
+//  Chessman* currentChessman = getChessman(move.getOrigin());
+//  if(currentChessman != 0 && currentChessman->isMoveValid(this->board, move)) {
+//    this->board[move.getOrigin().getX()][move.getOrigin().getY()] = 0;
+//    this->board[move.getTarget().getX()][move.getTarget().getY()] = currentChessman;
+//    return true;
+//  }
   return false;
 }

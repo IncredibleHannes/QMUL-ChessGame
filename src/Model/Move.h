@@ -4,7 +4,12 @@
 #include "Position.h"
 
 class Move{
-  Position getOrigin();
-  Position getTarget();
+public:
+  Move(Position origin, Position target);
+  Position getOrigin() const;
+  Position getTarget() const;
+private:
+  Position origin;
+  Position target;
 };
 #endif

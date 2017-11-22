@@ -1,11 +1,11 @@
 #include "Chessman.h"
 
-Chessman::Chessman(bool colour) {
+Chessman::Chessman(Colour colour) {
   this->colour = colour;
   this->captured = false;
 }
 
-bool Chessman::getColor() {
+Colour Chessman::getColour() {
   return colour;
 }
 
@@ -41,6 +41,6 @@ void Chessman::setCurrentPosition(Position position) {
   this->position = position;
 }
 
-bool Chessman::isMoveValid(Board* board, Move move) {
+bool Chessman::isMoveValid(Chessman*** board, Move move) {
   return true;
 }

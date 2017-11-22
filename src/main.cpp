@@ -1,5 +1,7 @@
+#include "Model/Board.h"
 
 int main(int argc, char const *argv[]) {
-  /* code */
+  Board *board = new Board();
+
   return 0;
 }
