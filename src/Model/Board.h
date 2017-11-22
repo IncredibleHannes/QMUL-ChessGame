@@ -1,11 +1,13 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "Chessman/Chessman.h"
-#include "Move.h"
-#include "Position.h"
 #include <list>
 
+#include "Chessman.h"
+#include "Move.h"
+#include "Position.h"
+
+class Chessman;
 
 class Board {
 public:

@@ -1,12 +1,13 @@
 #ifndef KING_H
 #define KING_H
-#include "Chessman.h"
 
+#include "Chessman.h"
 
 class King : public Chessman {
 public:
-  King(bool colour);
-  std::list<Move> getPossibleMoves(Chessman*** board);
+  King(Chessman::Colour colour, Position position);
+
+  // virtual std::list<Move> getPossibleMoves(const Board& board) const;
 };
 
 #endif

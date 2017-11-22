@@ -4,6 +4,7 @@
 #include <list>
 
 #include "Move.h"
+#include "Board.h"
 #include "Position.h"
 
 class Chessman {
@@ -12,7 +13,7 @@ public:
   enum Colour : bool { Black, White };
 
   // Constructors
-  Chessman(Colour colour);
+  Chessman(Colour colour, Position position);
 
   // getters and setters for the fields
   Colour getColour() const;

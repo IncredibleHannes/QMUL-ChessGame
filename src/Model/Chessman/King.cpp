@@ -1,15 +1,16 @@
 #include "King.h"
 
-King::King(bool colour):Chessman(colour) {
-  setValue(0);
-  setType(FigureType::King);
-}
+/*King::King(Chessman::Colour colour, Position position)
+  : Chessman(colour, position) {
+  // setValue(0);
+  // setType(FigureType::King);
+}*/
 
-std::list<Move> King::getPossibleMoves(Chessman*** board) {
-  if(isCaptured()) {
-    return NULL;
-  } else {
+/*std::list<Move> King::getPossibleMoves(const Board& board) const {
+  std::list<Move> moves;
+  if(!isCaptured()) {
 
   }
-  return NULL;
+  return moves;
 }
+*/

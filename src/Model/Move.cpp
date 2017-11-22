@@ -1,8 +1,7 @@
 #include "Move.h"
 
-Move::Move(Position origin, Position target){
-  this->origin = origin;
-  this->target = target;
+Move::Move(Position origin, Position target)
+  : origin(origin), target(target) {
 }
 
 Position Move::getOrigin() const{
