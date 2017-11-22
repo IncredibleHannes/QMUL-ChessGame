@@ -7,6 +7,8 @@
 #include "Board.h"
 #include "Position.h"
 
+class Board;
+
 class Chessman {
 public:
   enum FigureType { King, Queen, Pawn, Knight, Rook, Bishop };

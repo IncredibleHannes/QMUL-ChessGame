@@ -1,4 +1,4 @@
-CPPFLAGS = -std=c++11 -Wall -Werror
+CPPFLAGS = -std=c++11 -Wall -Werror -g
 
 BIN = build
 SRC = $(shell find src/ -name *.cpp)
@@ -16,3 +16,6 @@ $(APP): $(OBJ)
 build/%.o: %.cpp
 	mkdir -p $(dir $@)
 	g++ $(CPPFLAGS) $(INCLUDE) -c $< -o $@
+
+clean:
+	rm -rf $(BIN)
