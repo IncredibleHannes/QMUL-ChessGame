@@ -1,5 +1,7 @@
 #include "Chessman.h"
 
+#include "Board.h"
+
 Chessman::Chessman(Colour colour, Position position)
   : colour(colour), captured(false), position(position) {
 }

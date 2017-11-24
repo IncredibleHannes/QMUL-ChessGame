@@ -4,7 +4,6 @@
 #include <list>
 
 #include "Move.h"
-#include "Board.h"
 #include "Position.h"
 
 class Board;

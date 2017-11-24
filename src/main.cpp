@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "Model/Board.h"
+#include "View/View.h"
 
 #define UNUSED(x) (void)x;
 
@@ -25,6 +26,14 @@ int main(int argc, char const *argv[]) {
   signal(SIGSEGV, handler);
 
   Board *board = new Board();
+  View *view = new View();
+
+  while (true){
+    view->printBoard(board);
+    Move* move = view->getMove();
+    board->applyMove(*move);
+  }
+
   UNUSED(board)
 
   return 0;

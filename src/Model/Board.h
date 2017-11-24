@@ -4,10 +4,14 @@
 #include <list>
 
 #include "Chessman.h"
+#include "Pawn.h"
+#include "Queen.h"
+#include "King.h"
+#include "Rook.h"
+#include "Knight.h"
+#include "Bishop.h"
 #include "Move.h"
 #include "Position.h"
-
-class Chessman;
 
 class Board {
 public:
@@ -18,6 +22,7 @@ public:
   std::list<Move> getAllPossibleMoves(bool colour);
   Chessman*** getBoard();
   Chessman* getChessman(Position);
+  bool applyMove(const Move move);
 
 private:
   // 2D array with chessman pointer
@@ -25,7 +30,8 @@ private:
   Board* previousBoard;
 
   Chessman*** createStartBoard();
-  bool applyMove(Move move);
+
+  std::list<Chessman*> capturedChessman;
 
 };
 
