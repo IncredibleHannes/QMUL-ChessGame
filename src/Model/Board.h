@@ -2,6 +2,7 @@
 #define BOARD_H
 
 #include <list>
+#include <iostream>
 
 #include "Chessman.h"
 #include "Pawn.h"
@@ -19,9 +20,9 @@ public:
   Board();
   Board(Board& board, Move move);
 
-  std::list<Move> getAllPossibleMoves(bool colour);
+  std::list<Move> getAllPossibleMoves(Chessman::Colour colour) const;
   Chessman*** getBoard();
-  Chessman* getChessman(Position);
+  Chessman* getChessman(Position) const;
   bool applyMove(const Move move);
 
 private:

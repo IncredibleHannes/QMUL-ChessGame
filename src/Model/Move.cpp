@@ -10,3 +10,7 @@ Position Move::getOrigin() const{
 Position Move::getTarget() const{
   return this->target;
 }
+
+bool Move::operator==(const Move &toCompare){
+  return this->getOrigin() == toCompare.getOrigin() && this->getTarget() == toCompare.getTarget();
+}

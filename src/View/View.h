@@ -9,9 +9,13 @@ class View {
 public:
   void printBoard(Board* board);
   Move* getMove();
+  void printGreeting();
 
 private:
   void printBoardLine();
+  void printBottomBoardLine();
+  void printTopBoardLine();
+  void printBoardLabel();
   void printChessman(Chessman* chessman);
 
 };

@@ -1,21 +1,39 @@
 #include "View.h"
 
 void View::printBoard(Board* board){
+  printBoardLabel();
+  printTopBoardLine();
   for (int i = 0; i < 8; i ++) {
-    printBoardLine();
-    std::cout << "| ";
+
+    std::cout << i + 1 << " │ ";
     for (int j = 0; j < 8; j ++) {
         printChessman(board->getChessman(Position(i,j)));
-        std::cout << " | ";
+        std::cout << " │ ";
     }
-    std::cout << std::endl;
+    std::cout << " "  << i + 1 << std::endl;
+    if (i < 7) {
+      printBoardLine();
+    }
   }
-  printBoardLine();
+  printBottomBoardLine();
+  printBoardLabel();
 
 }
 
 void View::printBoardLine(){
-  std::cout << "+-------------------------------+" << std::endl;
+  std::cout << "  ├───┼───┼───┼───┼───┼───┼───┼───┤" << std::endl;
+}
+
+void View::printTopBoardLine(){
+  std::cout << "  ┌───┬───┬───┬───┬───┬───┬───┬───┐" << std::endl;
+}
+
+void View::printBottomBoardLine(){
+  std::cout << "  └───┴───┴───┴───┴───┴───┴───┴───┘" << std::endl;
+}
+
+void View::printBoardLabel(){
+  std::cout << "    A   B   C   D   E   F   G   H" << std::endl;
 }
 
 void View::printChessman(Chessman* chessman){
@@ -23,7 +41,7 @@ void View::printChessman(Chessman* chessman){
     std::cout << " ";
     return;
   }
-  if (chessman->getColour() == Chessman::White){
+  if (chessman->getColour() != Chessman::White){
     switch (chessman->getType()) {
       case Chessman::Bishop :
         std::cout << "♗";
@@ -68,15 +86,18 @@ void View::printChessman(Chessman* chessman){
   }
 }
 
-Move* View::getMove(){
-  std::cout << "Enter X coordinate of your figure" << std::endl;
-  int x1, x2, y1, y2;
-  std::cin >> x1;
-  std::cout << std::endl << "Enter Y coordinate of your figure" << std::endl;
-  std::cin >> y1;
-  std::cout << std::endl << "Enter X coordinate of your target" << std::endl;
-  std::cin >> x2;
-  std::cout << std::endl << "Enter Y coordinate of your target" << std::endl;
-  std::cin >> y2;
-  return new Move(Position(x1,y1), Position(x2, y2));
+Move* View::getMove() {
+  std::cout << "Please select a figure: ";
+  std::string origin, target;
+  std::cin >> origin;
+  std::cout << std::endl << "Please select a target: ";
+  std::cin >> target;
+
+  return new Move(Position(origin), Position(target));
+}
+
+void View::printGreeting() {
+  std::cout << " ___________________________________" << std::endl << std::endl;
+  std::cout << " Welcome to my incredible chess game" << std::endl;
+  std::cout << " ___________________________________" << std::endl << std::endl << std::endl;
 }

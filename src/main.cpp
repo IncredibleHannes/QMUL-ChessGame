@@ -28,13 +28,12 @@ int main(int argc, char const *argv[]) {
   Board *board = new Board();
   View *view = new View();
 
+  view->printGreeting();
+
   while (true){
     view->printBoard(board);
     Move* move = view->getMove();
     board->applyMove(*move);
   }
-
-  UNUSED(board)
-
   return 0;
 }

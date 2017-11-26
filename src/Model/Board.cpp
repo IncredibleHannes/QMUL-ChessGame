@@ -1,16 +1,29 @@
 #include "Board.h"
 
+
 Board::Board() {
   this->board = createStartBoard();
 }
 
 Board::Board(Board& board, Move move) {
+  //TODO:refactore!
   this->previousBoard = new Board(board);
   applyMove(move);
 }
 
-std::list<Move> getAllPossibleMoves(bool colour){
+std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const{
   std::list<Move> list;
+  for (int i = 0; i < 8; i++) {
+    for (int j = 0; j < 8; j++) {
+      if (this->board[i][j] != nullptr && this->board[i][j]->getColour() == colour){
+         std::list<Move> moves = this->board[i][j]->getPossibleMoves(*this);
+         for (std::list<Move>::iterator it = moves.begin(); it != moves.end(); it++) {
+           list.push_back(*it);
+           std::cout << it->getTarget().getX() << " " << it->getTarget().getY() << "<-" << it->getOrigin().getX() << " " << it->getOrigin().getY() << std::endl;
+         }
+      }
+    }
+  }
   return list;
 }
 
@@ -44,17 +57,16 @@ Chessman*** Board::createStartBoard() {
   array2d[0][4] = new King(Chessman::Colour::White, Position(0,4));
   array2d[7][3] = new Queen(Chessman::Colour::Black, Position(7,3));
   array2d[7][4] = new King(Chessman::Colour::Black, Position(0,4));
-  // TODO: initialise and place the chessman correctly
   return array2d;
 }
 
-Chessman* Board::getChessman(Position position) {
+Chessman* Board::getChessman(Position position) const {
   return this->board[position.getX()][position.getY()];
 }
 
 bool Board::applyMove(const Move move) {
   Chessman* currentChessman = getChessman(move.getOrigin());
-  if(currentChessman != nullptr /* && currentChessman->isMoveValid(*this, move)*/) {
+  if(currentChessman != nullptr && currentChessman->isMoveValid(*this, move)) {
     this->board[move.getOrigin().getX()][move.getOrigin().getY()] = nullptr;
     Chessman* target = this->board[move.getTarget().getX()][move.getTarget().getY()];
     if(target != nullptr) {
@@ -62,7 +74,7 @@ bool Board::applyMove(const Move move) {
       capturedChessman.push_back(target);
     }
     this->board[move.getTarget().getX()][move.getTarget().getY()] = currentChessman;
-    currentChessman->setCurrentPosition(move.getOrigin());
+    currentChessman->setCurrentPosition(move.getTarget());
     return true;
   }
   return false;

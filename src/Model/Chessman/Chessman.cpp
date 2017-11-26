@@ -43,5 +43,10 @@ void Chessman::setCurrentPosition(Position position) {
 }
 
 bool Chessman::isMoveValid(const Board& board, const Move& move) const {
-  return true;
+  std::list<Move> moves = board.getAllPossibleMoves(this->getColour());
+  for (std::list<Move>::iterator it = moves.begin(); it != moves.end(); it++) {
+    if (*it == move)
+      return true;
+  }
+  return false;
 }

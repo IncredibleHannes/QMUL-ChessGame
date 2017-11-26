@@ -8,6 +8,7 @@ public:
   Move(Position origin, Position target);
   Position getOrigin() const;
   Position getTarget() const;
+  bool operator==(const Move &toCompare);
 private:
   Position origin;
   Position target;
