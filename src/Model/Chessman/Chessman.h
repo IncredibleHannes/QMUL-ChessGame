@@ -11,7 +11,7 @@ class Board;
 class Chessman {
 public:
   enum FigureType { King, Queen, Pawn, Knight, Rook, Bishop };
-  enum Colour : bool { Black, White };
+  enum Colour : bool { Black = false, White = true};
 
   // Constructors
   Chessman(Colour colour, Position position);

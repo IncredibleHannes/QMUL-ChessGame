@@ -10,6 +10,8 @@ public:
   void printBoard(Board *board);
   Move *getMove();
   void printGreeting();
+  void printCheck();
+  void printCheckmate();
 
 private:
   void printBoardLine();

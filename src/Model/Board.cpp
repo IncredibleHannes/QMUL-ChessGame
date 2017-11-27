@@ -3,8 +3,15 @@
 #include <cmath>
 #include <iostream>
 
-Board::Board() : currentColour(Chessman::Colour::White) {
+Board::Board()
+  : currentColour(Chessman::Colour::White) {
   this->board = createStartBoard();
+}
+
+Board::Board(Board *board, Move move)
+  : currentColour(Chessman::Colour::White) {
+    //this->board = board->getBoard();
+    //this->applyMove(move);
 }
 
 std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
@@ -109,4 +116,42 @@ void Board::changeCurrentColour() {
   } else {
     this->currentColour = Chessman::Colour::White;
   }
+}
+
+bool Board::isCheck() {
+  std::list<Move> moves = getAllPossibleMoves(swapColour(this->currentColour));
+  for (Move m : moves) {
+    Chessman *target = board[m.getTarget().getX()][m.getTarget().getY()];
+    if (target != nullptr
+        && target->getType() == Chessman::FigureType::King
+        && target->getColour() == this->currentColour) {
+      return true;
+    }
+  }
+  return false;
+}
+
+Chessman::Colour Board::swapColour(Chessman::Colour c) {
+  if (c == Chessman::Colour::White) {
+    return Chessman::Colour::Black;
+  }
+  return Chessman::Colour::White;
+}
+
+bool Board::isCheckmate() {
+  /*if (this->isCheck()) {
+    std::list<Move> moves = getAllPossibleMoves(this->currentColour);
+    for (Move m : moves) {
+      Board tmpBoard = Board(this, m);
+      if (tmpBoard.isCheck()) {
+        return false;
+      }
+    }
+    return true;
+  }*/
+  return false;
+}
+
+bool Board::isDraw() {
+  return false;
 }

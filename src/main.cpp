@@ -31,6 +31,13 @@ int main(int argc, char const *argv[]) {
   view->printGreeting();
 
   while (true) {
+    if (board->isCheckmate()) {
+      view->printCheckmate();
+      break;
+    }
+    if (board->isCheck()) {
+      view->printCheck();
+    }
     view->printBoard(board);
     Move *move = view->getMove();
     board->applyMove(*move);

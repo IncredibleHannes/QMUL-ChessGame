@@ -107,3 +107,12 @@ void View::printGreeting() {
   std::cout << " Welcome to my incredible chess game" << std::endl;
   std::cout << " ___________________________________" << std::endl << std::endl << std::endl;
 }
+
+void View::printCheck() {
+  std::cout << "You are in check!!!" << std::endl;
+}
+
+void View::printCheckmate() {
+  std::cout << "You are in Checkmate!!!" << std::endl;
+  std::cout << "The game is finish!" << std::endl;
+}
