@@ -5,12 +5,12 @@
 
 Bishop::Bishop(Chessman::Colour colour, Position position)
   : Chessman(colour, position) {
-    this->type = Chessman::Bishop;
+  this->type = Chessman::Bishop;
 }
 
-std::list<Move> Bishop::getPossibleMoves(const Board& board) const {
+std::list<Move> Bishop::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
-  if(!isCaptured()) {
+  if (!isCaptured()) {
     int x = this->getCurrentPosition().getX();
     int y = this->getCurrentPosition().getY();
     bool leftTop = true;
@@ -23,10 +23,10 @@ std::list<Move> Bishop::getPossibleMoves(const Board& board) const {
       if (leftTop) {
         Position p = Position(x + i, y - i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             leftTop = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -37,10 +37,10 @@ std::list<Move> Bishop::getPossibleMoves(const Board& board) const {
       if (rightTop) {
         Position p = Position(x + i, y + i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             rightTop = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -51,10 +51,10 @@ std::list<Move> Bishop::getPossibleMoves(const Board& board) const {
       if (leftBottom) {
         Position p = Position(x - i, y - i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             leftBottom = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -65,10 +65,10 @@ std::list<Move> Bishop::getPossibleMoves(const Board& board) const {
       if (rightBottom) {
         Position p = Position(x - i, y + i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             rightBottom = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }

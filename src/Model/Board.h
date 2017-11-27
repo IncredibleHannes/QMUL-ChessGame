@@ -21,13 +21,13 @@ public:
 
   std::list<Move> getAllPossibleMoves(Chessman::Colour colour) const;
   Chessman*** getBoard();
-  Chessman* getChessman(Position) const;
+  Chessman *getChessman(Position) const;
   bool applyMove(const Move move);
 
 private:
   // 2D array with chessman pointer
   Chessman*** board;
-  Board* previousBoard;
+  Board *previousBoard;
   Chessman::Colour currentColour;
 
   // helper functions
@@ -35,7 +35,7 @@ private:
   void move(Position origin, Position target);
   void changeCurrentColour();
 
-  std::list<Chessman*> capturedChessman;
+  std::list<Chessman *> capturedChessman;
 
 };
 

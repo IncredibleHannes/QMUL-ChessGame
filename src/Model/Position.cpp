@@ -10,7 +10,7 @@ Position::Position(int x, int y)
 
 Position::Position(std::string str) {
   this->y = toupper(str[0]) - 'A';
-  this->x =(str[1] - '0') - 1;
+  this->x = (str[1] - '0') - 1;
 }
 
 int Position::getX() const {
@@ -25,6 +25,6 @@ bool Position::isValid() const {
   return this->x >= 0 && this->x < 8 && this->y >= 0 && this->y < 8;
 }
 
-bool Position::operator==(const Position& toCompare){
+bool Position::operator==(const Position &toCompare) {
   return this->getX() == toCompare.getX() && this->getY() == toCompare.getY();
 }

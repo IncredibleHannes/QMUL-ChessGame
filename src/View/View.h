@@ -7,8 +7,8 @@
 
 class View {
 public:
-  void printBoard(Board* board);
-  Move* getMove();
+  void printBoard(Board *board);
+  Move *getMove();
   void printGreeting();
 
 private:
@@ -16,7 +16,7 @@ private:
   void printBottomBoardLine();
   void printTopBoardLine();
   void printBoardLabel();
-  void printChessman(Chessman* chessman);
+  void printChessman(Chessman *chessman);
 
 };
 #endif

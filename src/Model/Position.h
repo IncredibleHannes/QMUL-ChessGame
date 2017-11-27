@@ -9,7 +9,7 @@ public:
   Position();
   Position(int x, int y);
   Position(std::string y);
-  Position(const Position& other) = default;
+  Position(const Position &other) = default;
 
   int getX() const;
   int getY() const;

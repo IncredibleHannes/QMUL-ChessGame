@@ -7,7 +7,7 @@ class Rook : public Chessman {
 public:
   Rook(Chessman::Colour colour, Position position);
 
-  virtual std::list<Move> getPossibleMoves(const Board& board) const;
+  virtual std::list<Move> getPossibleMoves(const Board &board) const;
 };
 
 #endif

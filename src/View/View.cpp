@@ -1,14 +1,14 @@
 #include "View.h"
 
-void View::printBoard(Board* board){
+void View::printBoard(Board *board) {
   printBoardLabel();
   printTopBoardLine();
   for (int i = 0; i < 8; i ++) {
 
     std::cout << i + 1 << " │ ";
     for (int j = 0; j < 8; j ++) {
-        printChessman(board->getChessman(Position(i,j)));
-        std::cout << " │ ";
+      printChessman(board->getChessman(Position(i, j)));
+      std::cout << " │ ";
     }
     std::cout << " "  << i + 1 << std::endl;
     if (i < 7) {
@@ -20,28 +20,34 @@ void View::printBoard(Board* board){
 
 }
 
-void View::printBoardLine(){
-  std::cout << "  ├───┼───┼───┼───┼───┼───┼───┼───┤" << std::endl;
+void View::printBoardLine() {
+  std::cout <<
+            "  ├───┼───┼───┼───┼───┼───┼───┼───┤"
+            << std::endl;
 }
 
-void View::printTopBoardLine(){
-  std::cout << "  ┌───┬───┬───┬───┬───┬───┬───┬───┐" << std::endl;
+void View::printTopBoardLine() {
+  std::cout <<
+            "  ┌───┬───┬───┬───┬───┬───┬───┬───┐"
+            << std::endl;
 }
 
-void View::printBottomBoardLine(){
-  std::cout << "  └───┴───┴───┴───┴───┴───┴───┴───┘" << std::endl;
+void View::printBottomBoardLine() {
+  std::cout <<
+            "  └───┴───┴───┴───┴───┴───┴───┴───┘"
+            << std::endl;
 }
 
-void View::printBoardLabel(){
+void View::printBoardLabel() {
   std::cout << "    A   B   C   D   E   F   G   H" << std::endl;
 }
 
-void View::printChessman(Chessman* chessman){
+void View::printChessman(Chessman *chessman) {
   if (chessman == nullptr) {
     std::cout << " ";
     return;
   }
-  if (chessman->getColour() != Chessman::White){
+  if (chessman->getColour() != Chessman::White) {
     switch (chessman->getType()) {
       case Chessman::Bishop :
         std::cout << "♗";
@@ -61,7 +67,7 @@ void View::printChessman(Chessman* chessman){
       case Chessman::Rook :
         std::cout << "♖";
         break;
-      }
+    }
   } else {
     switch (chessman->getType()) {
       case Chessman::Bishop :
@@ -82,11 +88,11 @@ void View::printChessman(Chessman* chessman){
       case Chessman::Rook :
         std::cout << "♜";
         break;
-      }
+    }
   }
 }
 
-Move* View::getMove() {
+Move *View::getMove() {
   std::cout << "Please select a figure: ";
   std::string origin, target;
   std::cin >> origin;

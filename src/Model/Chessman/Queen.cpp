@@ -3,12 +3,12 @@
 
 Queen::Queen(Chessman::Colour colour, Position position)
   : Chessman(colour, position) {
-    this->type = Chessman::Queen;
+  this->type = Chessman::Queen;
 }
 
-std::list<Move> Queen::getPossibleMoves(const Board& board) const {
+std::list<Move> Queen::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
-  if(!isCaptured()) {
+  if (!isCaptured()) {
     int x = this->getCurrentPosition().getX();
     int y = this->getCurrentPosition().getY();
     bool top = true;
@@ -25,10 +25,10 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
       if (top) {
         Position p = Position(x + i, y);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             top = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -39,10 +39,10 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
       if (right) {
         Position p = Position(x, y + i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             right = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -53,10 +53,10 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
       if (bottom) {
         Position p = Position(x - i, y);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             bottom = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -67,10 +67,10 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
       if (left) {
         Position p = Position(x, y - i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             left = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -81,10 +81,10 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
       if (leftTop) {
         Position p = Position(x + i, y - i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             leftTop = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -95,10 +95,10 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
       if (rightTop) {
         Position p = Position(x + i, y + i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             rightTop = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -109,10 +109,10 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
       if (leftBottom) {
         Position p = Position(x - i, y - i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             leftBottom = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -123,10 +123,10 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
       if (rightBottom) {
         Position p = Position(x - i, y + i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             rightBottom = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }

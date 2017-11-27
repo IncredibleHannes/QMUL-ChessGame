@@ -3,7 +3,7 @@
 
 #include "Position.h"
 
-class Move{
+class Move {
 public:
   Move(Position origin, Position target);
   Move(Position origin, Position target, bool casteling);

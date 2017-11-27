@@ -21,13 +21,13 @@ public:
   void capture();
   bool isCaptured() const;
   int getValue() const;
-  bool isMoveValid(const Board& board, const Move& move) const;
+  bool isMoveValid(const Board &board, const Move &move) const;
   FigureType getType() const;
   Position getCurrentPosition() const;
   void setCurrentPosition(Position position);
   bool wasMoved() const;
 
-  virtual std::list<Move> getPossibleMoves(const Board& board) const = 0;
+  virtual std::list<Move> getPossibleMoves(const Board &board) const = 0;
 
 protected:
   void setValue(int value);

@@ -47,11 +47,11 @@ bool Chessman::wasMoved() const {
   return this->moved;
 }
 
-bool Chessman::isMoveValid(const Board& board, const Move& move) const {
+bool Chessman::isMoveValid(const Board &board, const Move &move) const {
   std::list<Move> moves = board.getAllPossibleMoves(this->getColour());
   for (std::list<Move>::iterator it = moves.begin(); it != moves.end(); it++) {
     if (*it == move)
-      return true;
+    { return true; }
   }
   return false;
 }

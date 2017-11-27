@@ -8,7 +8,7 @@ class Knight : public Chessman {
 public:
   Knight(Chessman::Colour colour, Position position);
 
-  virtual std::list<Move> getPossibleMoves(const Board& board) const;
+  virtual std::list<Move> getPossibleMoves(const Board &board) const;
 };
 
 #endif

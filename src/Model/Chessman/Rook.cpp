@@ -3,12 +3,12 @@
 
 Rook::Rook(Chessman::Colour colour, Position position)
   : Chessman(colour, position) {
-    this->type = Chessman::Rook;
+  this->type = Chessman::Rook;
 }
 
-std::list<Move> Rook::getPossibleMoves(const Board& board) const {
+std::list<Move> Rook::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
-  if(!isCaptured()) {
+  if (!isCaptured()) {
     int x = this->getCurrentPosition().getX();
     int y = this->getCurrentPosition().getY();
     bool top = true;
@@ -21,10 +21,10 @@ std::list<Move> Rook::getPossibleMoves(const Board& board) const {
       if (top) {
         Position p = Position(x + i, y);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             top = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -35,10 +35,10 @@ std::list<Move> Rook::getPossibleMoves(const Board& board) const {
       if (right) {
         Position p = Position(x, y + i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             right = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -49,10 +49,10 @@ std::list<Move> Rook::getPossibleMoves(const Board& board) const {
       if (bottom) {
         Position p = Position(x - i, y);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             bottom = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }
@@ -63,10 +63,10 @@ std::list<Move> Rook::getPossibleMoves(const Board& board) const {
       if (left) {
         Position p = Position(x, y - i);
         if (p.isValid()) {
-          if(board.getChessman(p) != nullptr){
+          if (board.getChessman(p) != nullptr) {
             left = false;
             if (board.getChessman(p)->getColour() != this->colour)
-              moves.push_back(Move(Position(x, y), p));
+            { moves.push_back(Move(Position(x, y), p)); }
           } else {
             moves.push_back(Move(Position(x, y), p));
           }

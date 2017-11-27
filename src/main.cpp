@@ -10,7 +10,7 @@
 
 void handler(int sig) {
   const int items = 10;
-  void* array[items];
+  void *array[items];
   size_t size;
 
   size = backtrace(array, items);
@@ -30,9 +30,9 @@ int main(int argc, char const *argv[]) {
 
   view->printGreeting();
 
-  while (true){
+  while (true) {
     view->printBoard(board);
-    Move* move = view->getMove();
+    Move *move = view->getMove();
     board->applyMove(*move);
   }
   return 0;
