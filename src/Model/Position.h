@@ -13,6 +13,8 @@ public:
   int getX() const;
   int getY() const;
 
+  bool isValid() const;
+
   bool operator==(const Position &toCompare);
 
 private:

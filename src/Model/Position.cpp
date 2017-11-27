@@ -17,6 +17,10 @@ int Position::getY() const {
   return this->y;
 }
 
+bool Position::isValid() const {
+  return this->x >= 0 && this->x < 8 && this->y >= 0 && this->y < 8;
+}
+
 bool Position::operator==(const Position& toCompare){
   return this->getX() == toCompare.getX() && this->getY() == toCompare.getY();
 }
