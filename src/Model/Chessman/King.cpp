@@ -25,6 +25,26 @@ std::list<Move> King::getPossibleMoves(const Board& board) const {
         }
       }
     }
+    // Castling
+    // TODO: maybe check if the king and the rook havent moved
+    if ((x == 0 || x == 7) && y == 4) {
+      if (board.getChessman(Position(x, y + 1)) == nullptr
+          && board.getChessman(Position(x, y + 2)) == nullptr
+          && board.getChessman(Position(x, y + 3))->getType() == Chessman::FigureType::Rook
+          && board.getChessman(Position(x, y + 3))->getColour() == this->colour){
+        moves.push_back(Move(Position(x,y), Position(x, y + 2)));
+
+      }
+      if (board.getChessman(Position(x, y - 1)) == nullptr
+          && board.getChessman(Position(x, y - 2)) == nullptr
+          && board.getChessman(Position(x, y - 3)) == nullptr
+          && board.getChessman(Position(x, y - 4))->getType() == Chessman::FigureType::Rook
+          && board.getChessman(Position(x, y - 4))->getColour() == this->colour){
+        moves.push_back(Move(Position(x,y), Position(x, y - 2)));
+
+      }
+
+    }
   }
   return moves;
 }

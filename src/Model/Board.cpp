@@ -1,5 +1,6 @@
 #include "Board.h"
 
+#include <cmath>
 
 Board::Board() {
   this->board = createStartBoard();
@@ -75,6 +76,27 @@ bool Board::applyMove(const Move move) {
     }
     this->board[move.getTarget().getX()][move.getTarget().getY()] = currentChessman;
     currentChessman->setCurrentPosition(move.getTarget());
+    // Castling
+    Position *rookTarget = nullptr;
+    Position *rookOrigin = nullptr;
+    if(currentChessman->getType() == Chessman::FigureType::King
+       && move.getOrigin().getY() - move.getTarget().getY() == 2 ) {
+         rookTarget = new Position(move.getTarget().getX(), move.getTarget().getY() + 1);
+         rookOrigin = new Position(move.getTarget().getX(), 0);
+    }
+    if(currentChessman->getType() == Chessman::FigureType::King
+       && move.getOrigin().getY() - move.getTarget().getY() == -2 ) {
+         rookTarget = new Position(move.getTarget().getX(), move.getTarget().getY() - 1);
+         rookOrigin = new Position(move.getTarget().getX(), 7);
+    }
+    if (rookTarget != nullptr){
+      Chessman* rook = this->board[rookOrigin->getX()][rookOrigin->getY()];
+      this->board[rookOrigin->getX()][rookOrigin->getY()] = nullptr;
+      this->board[rookTarget->getX()][rookTarget->getY()] = rook;
+      rook->setCurrentPosition(*rookTarget);
+      delete rookOrigin;
+      delete rookTarget;
+    }
     return true;
   }
   return false;
