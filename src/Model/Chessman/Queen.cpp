@@ -21,9 +21,9 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
     bool rightBottom = true;
     int i = 1;
 
-    while (top || right || bottom || left) {
+    while (top || right || bottom || left || leftTop || rightTop || leftBottom || rightBottom) {
       if (top) {
-        Position p = Position(x + i, y - i);
+        Position p = Position(x + i, y);
         if (p.isValid()) {
           if(board.getChessman(p) != nullptr){
             top = false;
@@ -37,7 +37,7 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
         }
       }
       if (right) {
-        Position p = Position(x + i, y + i);
+        Position p = Position(x, y + i);
         if (p.isValid()) {
           if(board.getChessman(p) != nullptr){
             right = false;
@@ -51,7 +51,7 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
         }
       }
       if (bottom) {
-        Position p = Position(x - i, y - i);
+        Position p = Position(x - i, y);
         if (p.isValid()) {
           if(board.getChessman(p) != nullptr){
             bottom = false;
@@ -65,7 +65,7 @@ std::list<Move> Queen::getPossibleMoves(const Board& board) const {
         }
       }
       if (left) {
-        Position p = Position(x - i, y + i);
+        Position p = Position(x, y - i);
         if (p.isValid()) {
           if(board.getChessman(p) != nullptr){
             left = false;
