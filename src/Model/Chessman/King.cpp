@@ -9,7 +9,22 @@ King::King(Chessman::Colour colour, Position position)
 std::list<Move> King::getPossibleMoves(const Board& board) const {
   std::list<Move> moves;
   if(!isCaptured()) {
-
+    int x = this->position.getX();
+    int y = this->position.getY();
+    for (int i = -1; i < 2; i++) {
+      for (int j = -1; j < 2; j ++){
+        int targetx = x + i;
+        int targety = y + j;
+        if (targetx >= 0 && targetx < 8 && targety >= 0 && targety < 8) {
+          if (board.getChessman(Position(targetx,targety)) != nullptr
+              && board.getChessman(Position(targetx,targety))->getColour() != this->getColour()) {
+            moves.push_back(Move(Position(x,y), Position(targetx, targety)));
+          } else if (board.getChessman(Position(targetx,targety)) == nullptr) {
+            moves.push_back(Move(Position(x,y), Position(targetx, targety)));
+          }
+        }
+      }
+    }
   }
   return moves;
 }
