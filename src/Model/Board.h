@@ -18,7 +18,6 @@ class Board {
 public:
   // Constructores
   Board();
-  Board(Board& board, Move move);
 
   std::list<Move> getAllPossibleMoves(Chessman::Colour colour) const;
   Chessman*** getBoard();
