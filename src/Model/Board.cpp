@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-Board::Board() {
+Board::Board() : currentColour(Chessman::Colour::White) {
   this->board = createStartBoard();
 }
 
@@ -20,7 +20,6 @@ std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const{
          std::list<Move> moves = this->board[i][j]->getPossibleMoves(*this);
          for (std::list<Move>::iterator it = moves.begin(); it != moves.end(); it++) {
            list.push_back(*it);
-           std::cout << it->getTarget().getX() << " " << it->getTarget().getY() << "<-" << it->getOrigin().getX() << " " << it->getOrigin().getY() << std::endl;
          }
       }
     }
@@ -67,37 +66,49 @@ Chessman* Board::getChessman(Position position) const {
 
 bool Board::applyMove(const Move move) {
   Chessman* currentChessman = getChessman(move.getOrigin());
-  if(currentChessman != nullptr && currentChessman->isMoveValid(*this, move)) {
-    this->board[move.getOrigin().getX()][move.getOrigin().getY()] = nullptr;
-    Chessman* target = this->board[move.getTarget().getX()][move.getTarget().getY()];
-    if(target != nullptr) {
-      target->capture();
-      capturedChessman.push_back(target);
-    }
-    this->board[move.getTarget().getX()][move.getTarget().getY()] = currentChessman;
-    currentChessman->setCurrentPosition(move.getTarget());
+  if(currentChessman != nullptr && currentChessman->isMoveValid(*this, move)
+     && currentChessman->getColour() == currentColour) {
+
+    Board::move(move.getOrigin(), move.getTarget());
+
     // Castling
-    Position *rookTarget = nullptr;
-    Position *rookOrigin = nullptr;
-    if(currentChessman->getType() == Chessman::FigureType::King
-       && move.getOrigin().getY() - move.getTarget().getY() == 2 ) {
-         rookTarget = new Position(move.getTarget().getX(), move.getTarget().getY() + 1);
-         rookOrigin = new Position(move.getTarget().getX(), 0);
+    if (move.isCasteling()) {
+      Position rookTarget, rookOrigin;
+      // right casteling
+      if(move.getOrigin().getY() - move.getTarget().getY() == 2 ) {
+        rookTarget = Position(move.getTarget().getX(), move.getTarget().getY() + 1);
+        rookOrigin = Position(move.getTarget().getX(), 0);
+      } else {
+        // left casteling
+        rookTarget = Position(move.getTarget().getX(), move.getTarget().getY() - 1);
+        rookOrigin = Position(move.getTarget().getX(), 7);
+      }
+      Board::move(rookOrigin, rookTarget);
     }
-    if(currentChessman->getType() == Chessman::FigureType::King
-       && move.getOrigin().getY() - move.getTarget().getY() == -2 ) {
-         rookTarget = new Position(move.getTarget().getX(), move.getTarget().getY() - 1);
-         rookOrigin = new Position(move.getTarget().getX(), 7);
-    }
-    if (rookTarget != nullptr){
-      Chessman* rook = this->board[rookOrigin->getX()][rookOrigin->getY()];
-      this->board[rookOrigin->getX()][rookOrigin->getY()] = nullptr;
-      this->board[rookTarget->getX()][rookTarget->getY()] = rook;
-      rook->setCurrentPosition(*rookTarget);
-      delete rookOrigin;
-      delete rookTarget;
-    }
+
+    changeCurrentColour();
     return true;
   }
   return false;
+}
+
+void Board::move(Position origin, Position target){
+  Chessman* currentChessman = this->board[target.getX()][target.getY()];
+  this->board[origin.getX()][origin.getY()] = nullptr;
+
+  Chessman* targetChessman = this->board[target.getX()][target.getY()];
+  if(targetChessman != nullptr) {
+    targetChessman->capture();
+    capturedChessman.push_back(targetChessman);
+  }
+  this->board[target.getX()][target.getY()] = currentChessman;
+  currentChessman->setCurrentPosition(target);
+}
+
+void Board::changeCurrentColour(){
+  if (this->currentColour == Chessman::Colour::White) {
+    this->currentColour = Chessman::Colour::Black;
+  } else {
+    this->currentColour = Chessman::Colour::White;
+  }
 }

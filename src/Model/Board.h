@@ -29,8 +29,12 @@ private:
   // 2D array with chessman pointer
   Chessman*** board;
   Board* previousBoard;
+  Chessman::Colour currentColour;
 
+  // helper functions
   Chessman*** createStartBoard();
+  void move(Position origin, Position target);
+  void changeCurrentColour();
 
   std::list<Chessman*> capturedChessman;
 
