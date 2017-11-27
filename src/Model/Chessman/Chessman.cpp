@@ -3,7 +3,7 @@
 #include "Board.h"
 
 Chessman::Chessman(Colour colour, Position position)
-  : colour(colour), captured(false), position(position) {
+  : colour(colour), captured(false), moved(false), position(position) {
 }
 
 Chessman::Colour Chessman::getColour() const {
@@ -39,7 +39,12 @@ Position Chessman::getCurrentPosition() const {
 }
 
 void Chessman::setCurrentPosition(Position position) {
+  this->moved = true;
   this->position = position;
+}
+
+bool Chessman::wasMoved() const {
+  return this->moved;
 }
 
 bool Chessman::isMoveValid(const Board& board, const Move& move) const {

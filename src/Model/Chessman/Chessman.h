@@ -25,6 +25,7 @@ public:
   FigureType getType() const;
   Position getCurrentPosition() const;
   void setCurrentPosition(Position position);
+  bool wasMoved() const;
 
   virtual std::list<Move> getPossibleMoves(const Board& board) const = 0;
 
@@ -34,6 +35,7 @@ protected:
 
   Colour colour;
   bool captured;
+  bool moved;
   int value;
   FigureType type;
   Position position;
