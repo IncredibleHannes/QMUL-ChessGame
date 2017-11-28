@@ -39,11 +39,6 @@ std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
   return list;
 }
 
-/*template<class T>
-Chessman* cc(Chessman::Colour colour, Position position) {
-  return new T(colour, position);
-}*/
-
 Chessman ** *Board::createStartBoard() {
   Chessman *** array2d = new Chessman **[8];
   for (int i = 0; i < 8; ++i) {
@@ -58,17 +53,6 @@ Chessman ** *Board::createStartBoard() {
     array2d[1][i] = new Pawn(Chessman::Colour::White, Position(1, i));
     array2d[6][i] = new Pawn(Chessman::Colour::Black, Position(6, i));
   }
-  /*
-  std::array<std::function<Chessman*(Chessman::Colour, Position)>, 8> bla = {
-    cc<Rook>, cc<Knight>, cc<Bishop>, cc<Queen>, cc<King>, cc<Bishop>, cc<Knight>, cc<Rook>
-  };
-
-  for (Chessman::Colour colour : { Chessman::White, Chessman::Black }) {
-    for (int i = 0; i < 8; i++) {
-      Position p(colour == Chessman::White ? 0 : 7, i);
-      array2d[p.getX()][p.getY()] = bla[i](colour, p);
-    }
-  } */
 
   array2d[0][0] = new Rook(Chessman::Colour::White, Position(0, 0));
   array2d[0][7] = new Rook(Chessman::Colour::White, Position(0, 7));
