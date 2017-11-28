@@ -17,7 +17,7 @@ public:
   Chessman ** *getBoard();
   Chessman *getChessman(Position) const;
   bool applyMove(Move move);
-  void undoMove(const Move move);
+  void undoLastMove();
   bool isCheck();
   bool isCheckmate();
   bool isDraw();

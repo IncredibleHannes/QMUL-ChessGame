@@ -21,6 +21,7 @@ public:
   // getters and setters for the fields
   Colour getColour() const;
   void capture();
+  void unsetCapture();
   bool isCaptured() const;
   int getValue() const;
   bool isMoveValid(const Board &board, const Move &move) const;

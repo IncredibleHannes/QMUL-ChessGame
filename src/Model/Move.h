@@ -15,6 +15,7 @@ public:
   Position getOrigin() const;
   Position getTarget() const;
   MoveType getType() const;
+  Chessman* getCapturedChessman() const;
   void setType(MoveType type);
   void setCaptureMove(Chessman *chessman);
   bool operator==(const Move &toCompare);

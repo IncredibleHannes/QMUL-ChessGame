@@ -11,17 +11,10 @@
 
 #include <cmath>
 #include <iostream>
-#include <functional>
 
 Board::Board()
   : currentColour(Chessman::Colour::White) {
   this->board = createStartBoard();
-}
-
-Board::Board(Board *board, Move move)
-  : currentColour(Chessman::Colour::White) {
-  //this->board = board->getBoard();
-  //this->applyMove(move);
 }
 
 std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
@@ -85,6 +78,7 @@ bool Board::applyMove(Move move) {
     Board::move(move);
     // Castling
     // TODO: it is possible to undo only the rook move
+    //(Suggestion: check it in the undo methode with the move type)
     Position *rookTarget = nullptr;
     Position *rookOrigin = nullptr;
     if (currentChessman->getType() == Chessman::FigureType::King
@@ -99,6 +93,7 @@ bool Board::applyMove(Move move) {
     }
     if (rookTarget != nullptr) {
       Board::move(Move(*rookOrigin, *rookTarget));
+      previousMoves.back()->setType(Move::Casteling);
     }
     delete rookOrigin;
     delete rookTarget;
@@ -148,19 +143,48 @@ bool Board::isCheck() {
 }
 
 bool Board::isCheckmate() {
-  /*if (this->isCheck()) {
-    std::list<Move> moves = getAllPossibleMoves(this->currentColour);
-    for (Move m : moves) {
-      Board tmpBoard = Board(this, m);
-      if (tmpBoard.isCheck()) {
-        return false;
-      }
+  if (!this->isCheck()) {
+    return false;
+  }
+  std::list<Move> moves = getAllPossibleMoves(this->currentColour);
+  for (Move m : moves) {
+    this->applyMove(m);
+    this->changeCurrentColour();
+    if (!this->isCheck()) {
+      this->changeCurrentColour();
+      this->undoLastMove();
+      return false;
+    } else {
+      this->changeCurrentColour();
     }
-    return true;
-  }*/
-  return false;
+    this->undoLastMove();
+  }
+  return true;
 }
 
 bool Board::isDraw() {
   return false;
+}
+
+void Board::undoLastMove() {
+  Move m = *previousMoves.back();
+  previousMoves.pop_back();
+
+  Position origin = m.getOrigin();
+  Position target = m.getTarget();
+  Chessman *currentChessman = this->board[target.getX()][target.getY()];
+
+  if (m.getType() == Move::Capture) {
+    this->board[target.getX()][target.getY()] = m.getCapturedChessman();
+    m.getCapturedChessman()->unsetCapture();
+  } else {
+    this->board[target.getX()][target.getY()] = nullptr;
+  }
+  this->board[origin.getX()][origin.getY()] = currentChessman;
+  currentChessman->setCurrentPosition(origin);
+
+  if(m.getType() == Move::Casteling) {
+    undoLastMove();
+  }
+  this->changeCurrentColour();
 }

@@ -20,16 +20,20 @@ Move::MoveType Move::getType() const {
   return this->type;
 }
 
+Chessman* Move::getCapturedChessman() const {
+  return this->capturedChessman;
+}
+
 void Move::setType(MoveType type) {
   this->type = type;
 }
 
-void Move::setCaptureMove(Chessman *chessman){
+void Move::setCaptureMove(Chessman *chessman) {
   this->type = Move::Capture;
   this->capturedChessman = chessman;
 }
 
 bool Move::operator==(const Move &toCompare) {
   return this->getOrigin() == toCompare.getOrigin() && this->getTarget() == toCompare.getTarget()
-  && this->type == toCompare.getType();
+         && this->type == toCompare.getType();
 }

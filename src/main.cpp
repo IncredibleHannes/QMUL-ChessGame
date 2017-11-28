@@ -25,22 +25,23 @@ void handler(int sig) {
 int main(int argc, char const *argv[]) {
   signal(SIGSEGV, handler);
 
-  Board *board = new Board();
-  View *view = new View();
+  Board board = Board();
+  View view = View();
 
-  view->printGreeting();
+  view.printGreeting();
 
   while (true) {
-    if (board->isCheckmate()) {
-      view->printCheckmate();
-      break;
+    if (board.isCheck()) {
+      view.printCheck();
+      if (board.isCheckmate()) {
+        view.printCheckmate();
+        view.printBoard(&board);
+        break;
+      }
     }
-    if (board->isCheck()) {
-      view->printCheck();
-    }
-    view->printBoard(board);
-    Move *move = view->getMove();
-    board->applyMove(*move);
+    view.printBoard(&board);
+    Move *move = view.getMove();
+    board.applyMove(*move);
   }
   return 0;
 }

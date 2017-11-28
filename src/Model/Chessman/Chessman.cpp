@@ -26,6 +26,10 @@ void Chessman::capture() {
   this->captured = true;
 }
 
+void Chessman::unsetCapture() {
+  this->captured = false;
+}
+
 Chessman::FigureType Chessman::getType() const {
   return this->type;
 }
@@ -58,5 +62,5 @@ bool Chessman::isMoveValid(const Board &board, const Move &move) const {
 
 
 Chessman::Colour operator!(Chessman::Colour colour) {
-  return static_cast<Chessman::Colour> (! static_cast<bool>(colour));
+  return static_cast<Chessman::Colour>(! static_cast<bool>(colour));
 }
