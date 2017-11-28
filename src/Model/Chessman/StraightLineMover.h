@@ -8,6 +8,6 @@ class StraightLineMover : public Chessman {
 public:
   StraightLineMover(Colour colour, Position position);
 protected:
-  void checkMove(const Board& board, std::list<Move>& moves, bool& direction, int dx, int dy) const;
+  void checkMove(const Board &board, std::list<Move> &moves, bool &direction, int dx, int dy) const;
 };
 #endif
