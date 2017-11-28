@@ -19,6 +19,7 @@ public:
   bool applyMove(Move move);
   void undoLastMove();
   bool isCheck();
+  bool currentlyInCheck();
   bool isCheckmate();
   bool isDraw();
 

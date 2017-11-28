@@ -81,12 +81,14 @@ Chessman *Board::getChessman(Position position) const {
 
 bool Board::applyMove(Move move) {
   Chessman *currentChessman = getChessman(move.getOrigin());
-
+  bool isCheck = this->isCheck();
 
   if (currentChessman != nullptr
       && currentChessman->isMoveValid(*this, move)
       && currentChessman->getColour() == currentColour) {
     Board::move(move);
+
+    // check casteling
     Position *rookTarget = nullptr;
     Position *rookOrigin = nullptr;
     if (currentChessman->getType() == Chessman::FigureType::King
@@ -107,9 +109,15 @@ bool Board::applyMove(Move move) {
     delete rookOrigin;
     delete rookTarget;
 
-    //TODO: check if after the move the player is still in check
+    //check if after the move the player is still in check
+    if (isCheck && this->isCheck()) {
+      changeCurrentColour();
+      this->undoLastMove();
+      return false;
+    }
 
     changeCurrentColour();
+
     return true;
   }
   return false;
@@ -156,20 +164,14 @@ bool Board::isCheck() {
 bool Board::isCheckmate() {
   if (!this->isCheck()) {
       return false;
-    }
-    std::list<Move> moves = getAllPossibleMoves(this->currentColour);
-    for (Move m : moves) {
-      this->applyMove(m);
-      this->changeCurrentColour();
-      if (!this->isCheck()) {
-        this->changeCurrentColour();
-        this->undoLastMove();
-        return false;
-      } else {
-        this->changeCurrentColour();
-      }
+  }
+  std::list<Move> moves = getAllPossibleMoves(this->currentColour);
+  for (Move m : moves) {
+    if(this->applyMove(m)) {
       this->undoLastMove();
+      return false;
     }
+  }
   return true;
 }
 
