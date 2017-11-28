@@ -21,16 +21,27 @@ std::list<Move> Pawn::getPossibleMoves(const Board &board) const {
           moves.push_back(Move(Position(x, y), Position(x + 2, y)));
         }
       }
-
-      //TODO: add capture
+      if(0 <= y - 1 && board.getChessman(Position(x + 1, y - 1)) != nullptr) {
+        moves.push_back(Move(Position(x, y), Position(x + 1, y - 1)));
+      }
+      if(y + 1 < 8 && board.getChessman(Position(x + 1, y + 1)) != nullptr) {
+        moves.push_back(Move(Position(x, y), Position(x + 1, y + 1)));
+      }
     } else {
-      if (board.getChessman(Position(x - 1, y)) == nullptr)
-      { moves.push_back(Move(Position(x, y), Position(x - 1, y))); }
+      if (board.getChessman(Position(x - 1, y)) == nullptr) {
+        moves.push_back(Move(Position(x, y), Position(x - 1, y)));
+      }
       //can move 2 fields!
       if (x == 6) {
         if (board.getChessman(Position(x - 1, y)) == nullptr &&
             board.getChessman(Position(x - 2, y)) == nullptr)
         { moves.push_back(Move(Position(x, y), Position(x - 2, y))); }
+      }
+      if(0 <= y - 1 && board.getChessman(Position(x - 1, y - 1)) != nullptr) {
+        moves.push_back(Move(Position(x, y), Position(x - 1, y - 1)));
+      }
+      if(y + 1 < 8 && board.getChessman(Position(x - 1, y + 1)) != nullptr) {
+        moves.push_back(Move(Position(x, y), Position(x - 1, y + 1)));
       }
     }
   }
