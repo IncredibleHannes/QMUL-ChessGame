@@ -17,6 +17,15 @@ Board::Board()
   this->board = createStartBoard();
 }
 
+Board::Board(std::list<Move*> moves)
+  : currentColour(Chessman::Colour::White) {
+  this->board = createStartBoard();
+  while (moves.size() != 0) {
+    applyMove(*moves.front());
+    moves.pop_front();
+  }
+}
+
 std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
   std::list<Move> list;
   for (int i = 0; i < 8; i++) {
@@ -72,13 +81,12 @@ Chessman *Board::getChessman(Position position) const {
 
 bool Board::applyMove(Move move) {
   Chessman *currentChessman = getChessman(move.getOrigin());
-  if (currentChessman != nullptr && currentChessman->isMoveValid(*this, move)
-      && currentChessman->getColour() == currentColour) {
 
+
+  if (currentChessman != nullptr
+      && currentChessman->isMoveValid(*this, move)
+      && currentChessman->getColour() == currentColour) {
     Board::move(move);
-    // Castling
-    // TODO: it is possible to undo only the rook move
-    //(Suggestion: check it in the undo methode with the move type)
     Position *rookTarget = nullptr;
     Position *rookOrigin = nullptr;
     if (currentChessman->getType() == Chessman::FigureType::King
@@ -92,11 +100,14 @@ bool Board::applyMove(Move move) {
       rookOrigin = new Position(move.getTarget().getX(), 7);
     }
     if (rookTarget != nullptr) {
+
       Board::move(Move(*rookOrigin, *rookTarget));
       previousMoves.back()->setType(Move::Casteling);
     }
     delete rookOrigin;
     delete rookTarget;
+
+    //TODO: check if after the move the player is still in check
 
     changeCurrentColour();
     return true;
@@ -144,21 +155,21 @@ bool Board::isCheck() {
 
 bool Board::isCheckmate() {
   if (!this->isCheck()) {
-    return false;
-  }
-  std::list<Move> moves = getAllPossibleMoves(this->currentColour);
-  for (Move m : moves) {
-    this->applyMove(m);
-    this->changeCurrentColour();
-    if (!this->isCheck()) {
-      this->changeCurrentColour();
-      this->undoLastMove();
       return false;
-    } else {
-      this->changeCurrentColour();
     }
-    this->undoLastMove();
-  }
+    std::list<Move> moves = getAllPossibleMoves(this->currentColour);
+    for (Move m : moves) {
+      this->applyMove(m);
+      this->changeCurrentColour();
+      if (!this->isCheck()) {
+        this->changeCurrentColour();
+        this->undoLastMove();
+        return false;
+      } else {
+        this->changeCurrentColour();
+      }
+      this->undoLastMove();
+    }
   return true;
 }
 
