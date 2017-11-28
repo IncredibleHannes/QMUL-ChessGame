@@ -7,11 +7,13 @@
 #include "Position.h"
 
 class Board;
+class Move;
 
 class Chessman {
 public:
   enum FigureType { King, Queen, Pawn, Knight, Rook, Bishop };
-  enum Colour : bool { Black = false, White = true};
+  enum Colour : bool { Black, White };
+
 
   // Constructors
   Chessman(Colour colour, Position position);
@@ -40,4 +42,6 @@ protected:
   FigureType type;
   Position position;
 };
+
+Chessman::Colour operator!(Chessman::Colour colour);
 #endif

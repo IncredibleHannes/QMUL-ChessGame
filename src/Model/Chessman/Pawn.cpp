@@ -17,8 +17,9 @@ std::list<Move> Pawn::getPossibleMoves(const Board &board) const {
       //can move 2 fields!
       if (x == 1) {
         if (board.getChessman(Position(x + 1, y)) == nullptr &&
-            board.getChessman(Position(x + 2, y)) == nullptr)
-        { moves.push_back(Move(Position(x, y), Position(x + 2, y))); }
+            board.getChessman(Position(x + 2, y)) == nullptr) { 
+          moves.push_back(Move(Position(x, y), Position(x + 2, y)));
+        }
       }
 
       //TODO: add capture

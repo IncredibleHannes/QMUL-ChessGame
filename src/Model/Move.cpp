@@ -1,11 +1,11 @@
 #include "Move.h"
 
 Move::Move(Position origin, Position target)
-  : origin(origin), target(target), casteling(false) {
+  : origin(origin), target(target), type(Move::MoveType::Normal) {
 }
 
-Move::Move(Position origin, Position target, bool casteling)
-  : origin(origin), target(target), casteling(casteling) {
+Move::Move(Position origin, Position target, Move::MoveType type)
+  : origin(origin), target(target), type(type) {
 }
 
 Position Move::getOrigin() const {
@@ -16,10 +16,20 @@ Position Move::getTarget() const {
   return this->target;
 }
 
-bool Move::isCasteling() const {
-  return this->casteling;
+Move::MoveType Move::getType() const {
+  return this->type;
+}
+
+void Move::setType(MoveType type) {
+  this->type = type;
+}
+
+void Move::setCaptureMove(Chessman *chessman){
+  this->type = Move::Capture;
+  this->capturedChessman = chessman;
 }
 
 bool Move::operator==(const Move &toCompare) {
-  return this->getOrigin() == toCompare.getOrigin() && this->getTarget() == toCompare.getTarget();
+  return this->getOrigin() == toCompare.getOrigin() && this->getTarget() == toCompare.getTarget()
+  && this->type == toCompare.getType();
 }

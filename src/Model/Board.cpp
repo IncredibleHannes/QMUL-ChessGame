@@ -1,7 +1,17 @@
 #include "Board.h"
 
+#include "Pawn.h"
+#include "Queen.h"
+#include "King.h"
+#include "Rook.h"
+#include "Knight.h"
+#include "Bishop.h"
+#include "Move.h"
+#include "Position.h"
+
 #include <cmath>
 #include <iostream>
+#include <functional>
 
 Board::Board()
   : currentColour(Chessman::Colour::White) {
@@ -10,8 +20,8 @@ Board::Board()
 
 Board::Board(Board *board, Move move)
   : currentColour(Chessman::Colour::White) {
-    //this->board = board->getBoard();
-    //this->applyMove(move);
+  //this->board = board->getBoard();
+  //this->applyMove(move);
 }
 
 std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
@@ -29,6 +39,11 @@ std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
   return list;
 }
 
+/*template<class T>
+Chessman* cc(Chessman::Colour colour, Position position) {
+  return new T(colour, position);
+}*/
+
 Chessman ** *Board::createStartBoard() {
   Chessman *** array2d = new Chessman **[8];
   for (int i = 0; i < 8; ++i) {
@@ -43,6 +58,18 @@ Chessman ** *Board::createStartBoard() {
     array2d[1][i] = new Pawn(Chessman::Colour::White, Position(1, i));
     array2d[6][i] = new Pawn(Chessman::Colour::Black, Position(6, i));
   }
+  /*
+  std::array<std::function<Chessman*(Chessman::Colour, Position)>, 8> bla = {
+    cc<Rook>, cc<Knight>, cc<Bishop>, cc<Queen>, cc<King>, cc<Bishop>, cc<Knight>, cc<Rook>
+  };
+
+  for (Chessman::Colour colour : { Chessman::White, Chessman::Black }) {
+    for (int i = 0; i < 8; i++) {
+      Position p(colour == Chessman::White ? 0 : 7, i);
+      array2d[p.getX()][p.getY()] = bla[i](colour, p);
+    }
+  } */
+
   array2d[0][0] = new Rook(Chessman::Colour::White, Position(0, 0));
   array2d[0][7] = new Rook(Chessman::Colour::White, Position(0, 7));
   array2d[7][0] = new Rook(Chessman::Colour::Black, Position(7, 0));
@@ -66,13 +93,14 @@ Chessman *Board::getChessman(Position position) const {
   return this->board[position.getX()][position.getY()];
 }
 
-bool Board::applyMove(const Move move) {
+bool Board::applyMove(Move move) {
   Chessman *currentChessman = getChessman(move.getOrigin());
   if (currentChessman != nullptr && currentChessman->isMoveValid(*this, move)
       && currentChessman->getColour() == currentColour) {
 
-    Board::move(move.getOrigin(), move.getTarget());
+    Board::move(move);
     // Castling
+    // TODO: it is possible to undo only the rook move
     Position *rookTarget = nullptr;
     Position *rookOrigin = nullptr;
     if (currentChessman->getType() == Chessman::FigureType::King
@@ -86,7 +114,7 @@ bool Board::applyMove(const Move move) {
       rookOrigin = new Position(move.getTarget().getX(), 7);
     }
     if (rookTarget != nullptr) {
-      Board::move(*rookOrigin, *rookTarget);
+      Board::move(Move(*rookOrigin, *rookTarget));
     }
     delete rookOrigin;
     delete rookTarget;
@@ -97,17 +125,21 @@ bool Board::applyMove(const Move move) {
   return false;
 }
 
-void Board::move(Position origin, Position target) {
+void Board::move(Move move) {
+  Position origin = move.getOrigin();
+  Position target = move.getTarget();
   Chessman *currentChessman = this->board[origin.getX()][origin.getY()];
   this->board[origin.getX()][origin.getY()] = nullptr;
 
   Chessman *targetChessman = this->board[target.getX()][target.getY()];
   if (targetChessman != nullptr) {
     targetChessman->capture();
-    capturedChessman.push_back(targetChessman);
+    move.setCaptureMove(targetChessman);
+    capturedChessmen.push_back(targetChessman);
   }
   this->board[target.getX()][target.getY()] = currentChessman;
   currentChessman->setCurrentPosition(target);
+  this->previousMoves.push_back(new Move(move));
 }
 
 void Board::changeCurrentColour() {
@@ -119,7 +151,7 @@ void Board::changeCurrentColour() {
 }
 
 bool Board::isCheck() {
-  std::list<Move> moves = getAllPossibleMoves(swapColour(this->currentColour));
+  std::list<Move> moves = getAllPossibleMoves(!this->currentColour);
   for (Move m : moves) {
     Chessman *target = board[m.getTarget().getX()][m.getTarget().getY()];
     if (target != nullptr
@@ -129,13 +161,6 @@ bool Board::isCheck() {
     }
   }
   return false;
-}
-
-Chessman::Colour Board::swapColour(Chessman::Colour c) {
-  if (c == Chessman::Colour::White) {
-    return Chessman::Colour::Black;
-  }
-  return Chessman::Colour::White;
 }
 
 bool Board::isCheckmate() {

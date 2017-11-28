@@ -55,3 +55,8 @@ bool Chessman::isMoveValid(const Board &board, const Move &move) const {
   }
   return false;
 }
+
+
+Chessman::Colour operator!(Chessman::Colour colour) {
+  return static_cast<Chessman::Colour> (! static_cast<bool>(colour));
+}

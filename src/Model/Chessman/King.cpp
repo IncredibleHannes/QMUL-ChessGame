@@ -32,7 +32,7 @@ std::list<Move> King::getPossibleMoves(const Board &board) const {
           && board.getChessman(Position(x, y + 3))->getType() == Chessman::FigureType::Rook
           && board.getChessman(Position(x, y + 3))->getColour() == this->colour
           && !board.getChessman(Position(x, y + 3))->wasMoved()) {
-        moves.push_back(Move(Position(x, y), Position(x, y + 2), true));
+        moves.push_back(Move(Position(x, y), Position(x, y + 2), Move::Casteling));
 
       }
       if (board.getChessman(Position(x, y - 1)) == nullptr
@@ -41,7 +41,7 @@ std::list<Move> King::getPossibleMoves(const Board &board) const {
           && board.getChessman(Position(x, y - 4))->getType() == Chessman::FigureType::Rook
           && board.getChessman(Position(x, y - 4))->getColour() == this->colour
           && !board.getChessman(Position(x, y - 4))->wasMoved()) {
-        moves.push_back(Move(Position(x, y), Position(x, y - 2), true));
+        moves.push_back(Move(Position(x, y), Position(x, y - 2), Move::Casteling));
 
       }
 

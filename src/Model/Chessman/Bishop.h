@@ -1,9 +1,9 @@
 #ifndef BISHOP_H
 #define BISHOP_H
 
-#include "Chessman.h"
+#include "StraightLineMover.h"
 
-class Bishop : public Chessman {
+class Bishop : public StraightLineMover {
 public:
   Bishop(Chessman::Colour colour, Position position);
 

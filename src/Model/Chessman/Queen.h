@@ -1,9 +1,9 @@
 #ifndef QUEEN_H
 #define QUEEN_H
 
-#include "Chessman.h"
+#include "StraightLineMover.h"
 
-class Queen : public Chessman {
+class Queen : public StraightLineMover {
 public:
   Queen(Chessman::Colour colour, Position position);
 

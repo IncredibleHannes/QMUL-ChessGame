@@ -1,9 +1,9 @@
 #ifndef ROOK_H
 #define ROOK_H
 
-#include "Chessman.h"
+#include "StraightLineMover.h"
 
-class Rook : public Chessman {
+class Rook : public StraightLineMover {
 public:
   Rook(Chessman::Colour colour, Position position);
 
