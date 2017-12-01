@@ -17,7 +17,7 @@ Board::Board()
   this->board = createStartBoard();
 }
 
-Board::Board(std::list<Move*> moves)
+Board::Board(std::list<Move *> moves)
   : currentColour(Chessman::Colour::White) {
   this->board = createStartBoard();
   while (moves.size() != 0) {
@@ -41,7 +41,7 @@ std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
   return list;
 }
 
-Chessman ** *Board::createStartBoard() {
+Chessman*** Board::createStartBoard() {
   Chessman *** array2d = new Chessman **[8];
   for (int i = 0; i < 8; ++i) {
     array2d[i] = new Chessman*[8];
@@ -88,6 +88,9 @@ bool Board::applyMove(Move move) {
       && currentChessman->getColour() == currentColour) {
     Board::move(move);
 
+    // Pawn Change
+
+
     // check casteling
     Position *rookTarget = nullptr;
     Position *rookOrigin = nullptr;
@@ -124,6 +127,7 @@ bool Board::applyMove(Move move) {
 }
 
 void Board::move(Move move) {
+
   Position origin = move.getOrigin();
   Position target = move.getTarget();
   Chessman *currentChessman = this->board[origin.getX()][origin.getY()];
@@ -163,11 +167,11 @@ bool Board::isCheck() {
 
 bool Board::isCheckmate() {
   if (!this->isCheck()) {
-      return false;
+    return false;
   }
   std::list<Move> moves = getAllPossibleMoves(this->currentColour);
   for (Move m : moves) {
-    if(this->applyMove(m)) {
+    if (this->applyMove(m)) {
       this->undoLastMove();
       return false;
     }
@@ -176,6 +180,9 @@ bool Board::isCheckmate() {
 }
 
 bool Board::isDraw() {
+  if (!this->isCheck() && getAllPossibleMoves(!this->currentColour).size() == 0) {
+    return true;
+  }
   return false;
 }
 
@@ -196,7 +203,7 @@ void Board::undoLastMove() {
   this->board[origin.getX()][origin.getY()] = currentChessman;
   currentChessman->setCurrentPosition(origin);
 
-  if(m.getType() == Move::Casteling) {
+  if (m.getType() == Move::Casteling) {
     undoLastMove();
   }
   this->changeCurrentColour();

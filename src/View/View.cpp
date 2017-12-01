@@ -116,3 +116,8 @@ void View::printCheckmate() {
   std::cout << "You are in Checkmate!!!" << std::endl;
   std::cout << "The game is finish!" << std::endl;
 }
+
+void View::printDraw() {
+  std::cout << "The game is a Draw!!!" << std::endl;
+  std::cout << "The game is finish!" << std::endl;
+}

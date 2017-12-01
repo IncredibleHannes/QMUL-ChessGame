@@ -7,11 +7,14 @@
 
 class View {
 public:
+  enum UserAction { Load, Save, MakeMove, Quit, Undo };
   void printBoard(Board *board);
   Move *getMove();
+  UserAction getUserAction();
   void printGreeting();
   void printCheck();
   void printCheckmate();
+  void printDraw();
 
 private:
   void printBoardLine();
