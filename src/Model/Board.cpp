@@ -186,6 +186,17 @@ bool Board::isDraw() {
   return false;
 }
 
+bool Board::isPromotion(Move move) {
+  Chessman *currentChessman = getChessman(move.getOrigin());
+  if (currentChessman == nullptr || currentChessman->getType() != Chessman::Pawn) {
+    return false;
+  }
+  if (move.getTarget().getX() == 0 || move.getTarget().getX() == 7) {
+    return true;
+  }
+  return false;
+}
+
 void Board::undoLastMove() {
   Move m = *previousMoves.back();
   previousMoves.pop_back();

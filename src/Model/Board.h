@@ -22,6 +22,7 @@ public:
   bool currentlyInCheck();
   bool isCheckmate();
   bool isDraw();
+  bool isPromotion(Move move);
 
 private:
   // 2D array with chessman pointer
