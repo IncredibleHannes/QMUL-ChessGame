@@ -17,6 +17,8 @@ public:
 
   // Constructors
   Chessman(Colour colour, Position position);
+  virtual Chessman* clone() const = 0;
+  virtual ~Chessman() = default;
 
   // getters and setters for the fields
   Colour getColour() const;

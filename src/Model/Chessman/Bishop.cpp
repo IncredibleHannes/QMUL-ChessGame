@@ -6,6 +6,10 @@ Bishop::Bishop(Chessman::Colour colour, Position position)
   this->type = Chessman::Bishop;
 }
 
+Chessman* Bishop::clone() const {
+  return new Bishop(*this);
+}
+
 std::list<Move> Bishop::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
   if (!isCaptured()) {

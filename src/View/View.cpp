@@ -102,6 +102,27 @@ Move *View::getMove() {
   return new Move(Position(origin), Position(target));
 }
 
+Chessman::FigureType View::getPromotionType(){
+  while (true) {
+    std::cout << "Please specify the figure you want your pawn be promoted to:" << std::endl;
+    std::cout << "Q(Queen), K(Knight), R(Rook), B(Bishop)" << std::endl;
+    std::string type;
+    std::cin >> type;
+    switch (toupper(type[0])) {
+      case 'Q':
+        return Chessman::Queen;
+      case 'K':
+        return Chessman::Knight;
+      case 'R':
+        return Chessman::Rook;
+      case 'B':
+        return Chessman::Bishop;
+      default:
+        continue;
+    }
+  }
+}
+
 void View::printGreeting() {
   std::cout << " ___________________________________" << std::endl << std::endl;
   std::cout << " Welcome to my incredible chess game" << std::endl;

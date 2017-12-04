@@ -6,6 +6,10 @@ Queen::Queen(Chessman::Colour colour, Position position)
   this->type = Chessman::Queen;
 }
 
+Chessman* Queen::clone() const {
+  return new Queen(*this);
+}
+
 std::list<Move> Queen::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
   if (!isCaptured()) {

@@ -6,6 +6,10 @@ Rook::Rook(Chessman::Colour colour, Position position)
   this->type = Chessman::Rook;
 }
 
+Chessman* Rook::clone() const {
+  return new Rook(*this);
+}
+
 std::list<Move> Rook::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
   if (!isCaptured()) {

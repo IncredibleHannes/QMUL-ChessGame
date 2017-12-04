@@ -12,17 +12,20 @@ public:
   // Constructores
   Board();
   Board(std::list<Move*> moves);
+  Board(const Board &b);
+
+  ~Board();
 
   std::list<Move> getAllPossibleMoves(Chessman::Colour colour) const;
   Chessman ** *getBoard();
   Chessman *getChessman(Position) const;
-  bool applyMove(Move move);
+  bool applyMove(Move *move);
+  void applyPromotion(Move *move, Chessman::FigureType type);
   void undoLastMove();
-  bool isCheck();
-  bool currentlyInCheck();
-  bool isCheckmate();
-  bool isDraw();
-  bool isPromotion(Move move);
+  bool isCheck() const;
+  bool isCheckmate() const;
+  bool isDraw() const;
+  bool isPromotion(Move *move) const;
 
 private:
   // 2D array with chessman pointer
@@ -31,9 +34,8 @@ private:
 
   // helper functions
   Chessman ** *createStartBoard();
-  void move(Move move);
+  void move(Move *move);
   void changeCurrentColour();
-  Chessman::Colour swapColour(Chessman::Colour c);
 
   std::list<Chessman *> capturedChessmen;
   std::list<Move *> previousMoves;

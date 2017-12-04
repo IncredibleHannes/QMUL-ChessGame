@@ -10,6 +10,7 @@ public:
   enum UserAction { Load, Save, MakeMove, Quit, Undo };
   void printBoard(Board *board);
   Move *getMove();
+  Chessman::FigureType getPromotionType();
   UserAction getUserAction();
   void printGreeting();
   void printCheck();

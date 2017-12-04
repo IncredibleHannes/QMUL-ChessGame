@@ -6,6 +6,10 @@ Knight::Knight(Chessman::Colour colour, Position position)
   this->type = Chessman::Knight;
 }
 
+Chessman* Knight::clone() const {
+  return new Knight(*this);
+}
+
 std::list<Move> Knight::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
   if (!isCaptured()) {

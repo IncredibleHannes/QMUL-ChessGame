@@ -6,6 +6,10 @@ Pawn::Pawn(Chessman::Colour colour, Position position)
   this->type = Chessman::Pawn;
 }
 
+Chessman* Pawn::clone() const {
+  return new Pawn(*this);
+}
+
 std::list<Move> Pawn::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
   if (!isCaptured()) {

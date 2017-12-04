@@ -8,7 +8,7 @@ class Chessman;
 
 class Move {
 public:
-  enum MoveType { Normal, Capture, Casteling };
+  enum MoveType { Normal, Capture, Casteling, Promotion };
 
   Move(Position origin, Position target);
   Move(Position origin, Position target, MoveType type);

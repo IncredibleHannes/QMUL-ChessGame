@@ -6,6 +6,10 @@ King::King(Chessman::Colour colour, Position position)
   this->type = Chessman::King;
 }
 
+Chessman* King::clone() const {
+  return new King(*this);
+}
+
 std::list<Move> King::getPossibleMoves(const Board &board) const {
   std::list<Move> moves;
   if (!isCaptured()) {
@@ -29,6 +33,7 @@ std::list<Move> King::getPossibleMoves(const Board &board) const {
     if ((x == 0 || x == 7) && y == 4 && !this->wasMoved()) {
       if (board.getChessman(Position(x, y + 1)) == nullptr
           && board.getChessman(Position(x, y + 2)) == nullptr
+          && board.getChessman(Position(x, y + 3)) != nullptr
           && board.getChessman(Position(x, y + 3))->getType() == Chessman::FigureType::Rook
           && board.getChessman(Position(x, y + 3))->getColour() == this->colour
           && !board.getChessman(Position(x, y + 3))->wasMoved()) {
@@ -38,6 +43,7 @@ std::list<Move> King::getPossibleMoves(const Board &board) const {
       if (board.getChessman(Position(x, y - 1)) == nullptr
           && board.getChessman(Position(x, y - 2)) == nullptr
           && board.getChessman(Position(x, y - 3)) == nullptr
+          && board.getChessman(Position(x, y - 4)) != nullptr
           && board.getChessman(Position(x, y - 4))->getType() == Chessman::FigureType::Rook
           && board.getChessman(Position(x, y - 4))->getColour() == this->colour
           && !board.getChessman(Position(x, y - 4))->wasMoved()) {

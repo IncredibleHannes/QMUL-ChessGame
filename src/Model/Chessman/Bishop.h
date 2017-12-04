@@ -6,6 +6,7 @@
 class Bishop : public StraightLineMover {
 public:
   Bishop(Chessman::Colour colour, Position position);
+  virtual Chessman* clone() const;
 
   virtual std::list<Move> getPossibleMoves(const Board &board) const;
 };
