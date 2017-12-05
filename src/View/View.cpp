@@ -1,6 +1,6 @@
 #include "View.h"
 
-void View::printBoard(Board *board) {
+void View::printBoard(Board const *board) const {
   printBoardLabel();
   printTopBoardLine();
   for (int i = 0; i < 8; i ++) {
@@ -20,29 +20,29 @@ void View::printBoard(Board *board) {
 
 }
 
-void View::printBoardLine() {
+void View::printBoardLine() const {
   std::cout <<
             "  ├───┼───┼───┼───┼───┼───┼───┼───┤"
             << std::endl;
 }
 
-void View::printTopBoardLine() {
+void View::printTopBoardLine() const {
   std::cout <<
             "  ┌───┬───┬───┬───┬───┬───┬───┬───┐"
             << std::endl;
 }
 
-void View::printBottomBoardLine() {
+void View::printBottomBoardLine() const {
   std::cout <<
             "  └───┴───┴───┴───┴───┴───┴───┴───┘"
             << std::endl;
 }
 
-void View::printBoardLabel() {
+void View::printBoardLabel() const {
   std::cout << "    A   B   C   D   E   F   G   H" << std::endl;
 }
 
-void View::printChessman(Chessman *chessman) {
+void View::printChessman(Chessman const *chessman) const {
   if (chessman == nullptr) {
     std::cout << " ";
     return;
@@ -92,17 +92,19 @@ void View::printChessman(Chessman *chessman) {
   }
 }
 
-Move *View::getMove() {
-  std::cout << "Please select a figure: ";
-  std::string origin, target;
-  std::cin >> origin;
-  std::cout << std::endl << "Please select a target: ";
-  std::cin >> target;
-
-  return new Move(Position(origin), Position(target));
+void View::printInvalidMove() const {
+  std::cout << "Invalid Move. Please try again" << std::endl;
 }
 
-Chessman::FigureType View::getPromotionType(){
+void View::printInvalidUserAction() const {
+  std::cout << "Invalid User Action. Please try again" << std::endl;
+}
+
+void View::printQuitMessage() const {
+  std::cout << "Tank you for playing Chess with us!" << std::endl;
+}
+
+Chessman::FigureType View::getPromotionType() const {
   while (true) {
     std::cout << "Please specify the figure you want your pawn be promoted to:" << std::endl;
     std::cout << "Q(Queen), K(Knight), R(Rook), B(Bishop)" << std::endl;
@@ -123,22 +125,52 @@ Chessman::FigureType View::getPromotionType(){
   }
 }
 
-void View::printGreeting() {
+UserAction* View::getUserAction() const {
+  std::cout << "Please select a figure: ";
+  std::string origin, target;
+  std::cin >> origin;
+  if(origin[0] == ':') {
+    switch (toupper(origin[1])) {
+      case 'S':
+        return new UserAction(UserAction::Save);
+      case 'L':
+        return new UserAction(UserAction::Load);
+      case 'Q':
+        return new UserAction(UserAction::Quit);
+      case 'U':
+        return new UserAction(UserAction::Undo);
+      default:
+        return new UserAction(UserAction::Invalid);
+    }
+  }
+  std::cout << std::endl << "Please select a target: ";
+  std::cin >> target;
+  if(origin.length() == 2 && target.length() == 2
+     && toupper(origin[0]) - 'A' >= 0 &&  toupper(origin[0]) - 'A' < 8
+     && origin[1] - '0' > 0 &&  origin[1] - '0' <= 8
+     && toupper(target[0]) - 'A' >= 0 &&  toupper(target[0]) - 'A' < 8
+     && target[1] - '0' > 0 &&  target[1] - '0' <= 8) {
+    return new UserAction(new Move(Position(origin), Position(target)));
+  }
+  return new UserAction(UserAction::Invalid);
+}
+
+void View::printGreeting() const {
   std::cout << " ___________________________________" << std::endl << std::endl;
   std::cout << " Welcome to my incredible chess game" << std::endl;
   std::cout << " ___________________________________" << std::endl << std::endl << std::endl;
 }
 
-void View::printCheck() {
+void View::printCheck() const {
   std::cout << "You are in check!!!" << std::endl;
 }
 
-void View::printCheckmate() {
+void View::printCheckmate() const {
   std::cout << "You are in Checkmate!!!" << std::endl;
   std::cout << "The game is finish!" << std::endl;
 }
 
-void View::printDraw() {
+void View::printDraw() const {
   std::cout << "The game is a Draw!!!" << std::endl;
   std::cout << "The game is finish!" << std::endl;
 }

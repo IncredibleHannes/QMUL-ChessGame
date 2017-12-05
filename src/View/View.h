@@ -4,25 +4,27 @@
 #include <iostream>
 #include "Board.h"
 #include "Chessman.h"
+#include "UserAction.h"
 
 class View {
 public:
-  enum UserAction { Load, Save, MakeMove, Quit, Undo };
-  void printBoard(Board *board);
-  Move *getMove();
-  Chessman::FigureType getPromotionType();
-  UserAction getUserAction();
-  void printGreeting();
-  void printCheck();
-  void printCheckmate();
-  void printDraw();
+  void printBoard(Board const *board) const;
+  Chessman::FigureType getPromotionType() const;
+  UserAction *getUserAction() const;
+  void printGreeting() const;
+  void printCheck() const;
+  void printCheckmate() const;
+  void printDraw() const;
+  void printInvalidMove() const;
+  void printInvalidUserAction() const;
+  void printQuitMessage() const;
 
 private:
-  void printBoardLine();
-  void printBottomBoardLine();
-  void printTopBoardLine();
-  void printBoardLabel();
-  void printChessman(Chessman *chessman);
+  void printBoardLine() const;
+  void printBottomBoardLine() const;
+  void printTopBoardLine() const;
+  void printBoardLabel() const;
+  void printChessman(Chessman const *chessman) const;
 
 };
 #endif

@@ -173,7 +173,7 @@ void Board::move(Move *move) {
   this->previousMoves.push_back(move);
 }
 
-void Board::applyPromotion(Move *move, Chessman::FigureType type) {
+void Board::applyPromotion(Move const *move, Chessman::FigureType type) {
     Chessman *currentChessman = getChessman(move->getTarget());
     int x = move->getTarget().getX();
     int y = move->getTarget().getY();
@@ -261,6 +261,12 @@ void Board::undoLastMove() {
   Position origin = m->getOrigin();
   Position target = m->getTarget();
   Chessman *currentChessman = this->board[target.getX()][target.getY()];
+
+  if (m->getType() == Move::Promotion) {
+    delete currentChessman;
+    currentChessman = capturedChessmen.back();
+    capturedChessmen.pop_back();
+  }
 
   if (m->getType() == Move::Capture) {
     this->board[target.getX()][target.getY()] = m->getCapturedChessman();

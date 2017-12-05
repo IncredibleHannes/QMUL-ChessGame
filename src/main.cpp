@@ -1,6 +1,7 @@
 #include "Model/Board.h"
 #include "View/View.h"
 #include "Model/Move.h"
+#include "Model/UserAction.h"
 
 int main(int argc, char const *argv[]) {
 
@@ -41,10 +42,44 @@ int main(int argc, char const *argv[]) {
       break;
     }
     view.printBoard(&board);
-    Move *move = view.getMove();
-    board.applyMove(move);
-    if (board.isPromotion(move)) {
-      board.applyPromotion(move, view.getPromotionType());
+
+    bool noMoveAction = true;
+    while (noMoveAction) {
+      UserAction *userAction = view.getUserAction();
+      switch (userAction->getType()) {
+        case UserAction::Save :
+          std::cout << "UserAction Save" << std::endl;
+          //TODO: implement
+          delete userAction;
+          break;
+        case UserAction::Load :
+          std::cout << "UserAction Load" << std::endl;
+          //TODO: implement
+          delete userAction;
+          break;
+        case UserAction::Undo :
+          delete userAction;
+          board.undoLastMove();
+          noMoveAction = false;
+          break;
+        case UserAction::MoveAction :
+          if(!board.applyMove(userAction->getMove())) {
+            view.printInvalidMove();
+            continue;
+          }
+          if (board.isPromotion(userAction->getMove())) {
+            board.applyPromotion(userAction->getMove(), view.getPromotionType());
+          }
+          delete userAction;
+          noMoveAction = false;
+          break;
+        case UserAction::Quit :
+          std::cout << "UserAction Quit" << std::endl;
+          delete userAction;
+          return 0;
+        default:
+          view.printInvalidUserAction();
+      }
     }
   }
   return 0;
