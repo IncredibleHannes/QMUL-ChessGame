@@ -8,21 +8,28 @@ class Chessman;
 
 class Move {
 public:
-  enum MoveType { Normal, Capture, Casteling, Promotion };
+  enum MoveType : int {
+    Normal = 0x00,
+    Capture = 0x01,
+    Casteling = 0x02,
+    Promotion = 0x04
+  };
 
   Move(Position origin, Position target);
   Move(Position origin, Position target, MoveType type);
+  Move(const Move &move);
+  ~Move();
   Position getOrigin() const;
   Position getTarget() const;
-  MoveType getType() const;
+  void addType(MoveType type);
+  bool hasType(MoveType type) const;
   Chessman* getCapturedChessman() const;
-  void setType(MoveType type);
   void setCaptureMove(Chessman *chessman);
   bool operator==(const Move &toCompare);
 private:
   Position origin;
   Position target;
-  MoveType type;
+  int type;
   Chessman *capturedChessman;
 };
 #endif

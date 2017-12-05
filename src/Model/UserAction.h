@@ -9,6 +9,7 @@ public:
 
   UserAction(ActionType type);
   UserAction(Move *move);
+  ~UserAction();
 
   ActionType getType() const;
   Move* getMove() const;

@@ -1,4 +1,4 @@
-CPPFLAGS = -std=c++11 -Wall -Werror -g
+CPPFLAGS = -std=c++11 -Wall -Werror -g -O0
 
 BIN = build
 SRC = $(shell find src/ -name *.cpp)

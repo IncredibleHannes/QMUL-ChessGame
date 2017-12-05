@@ -49,7 +49,9 @@ Board::Board(const Board &b) {
 Board::~Board(){
   for (int x = 0; x < 8; x++) {
     for (int y = 0; y < 8; y++) {
-      delete this->board[x][y];
+      if (this->board[x][y] != nullptr) {
+        delete this->board[x][y];
+      }
     }
   }
   for(Chessman* c : this->capturedChessmen) {
@@ -65,10 +67,7 @@ std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
   for (int i = 0; i < 8; i++) {
     for (int j = 0; j < 8; j++) {
       if (this->board[i][j] != nullptr && this->board[i][j]->getColour() == colour) {
-        std::list<Move> moves = this->board[i][j]->getPossibleMoves(*this);
-        for (Move m : moves) {
-          list.push_back(m);
-        }
+        list.splice(list.end(), this->board[i][j]->getPossibleMoves(*this));
       }
     }
   }
@@ -135,7 +134,7 @@ bool Board::applyMove(Move *move) {
     }
     if (rookTarget != nullptr) {
       Board::move(new Move(*rookOrigin, *rookTarget));
-      previousMoves.back()->setType(Move::Casteling);
+      previousMoves.back()->addType(Move::Casteling);
       delete &rookOrigin;
       delete &rookTarget;
     }
@@ -170,7 +169,7 @@ void Board::move(Move *move) {
   }
   this->board[target.getX()][target.getY()] = currentChessman;
   currentChessman->setCurrentPosition(target);
-  this->previousMoves.push_back(move);
+  this->previousMoves.push_back(new Move(*move));
 }
 
 void Board::applyPromotion(Move const *move, Chessman::FigureType type) {
@@ -222,12 +221,16 @@ bool Board::isCheckmate() const {
     return false;
   }
   std::list<Move> moves = getAllPossibleMoves(this->currentColour);
-  Board b(*this);
   for (Move m : moves) {
-    if (b.applyMove(new Move(m))) {
+    Board *b = new Board(*this);
+    Move *m2 = new Move(m);
+    if (b->applyMove(m2)) {
+      delete b;
+      delete m2;
       return false;
     }
-    b.undoLastMove();
+    delete b;
+    delete m2;
   }
   return true;
 }
@@ -248,13 +251,16 @@ bool Board::isPromotion(Move *move) const {
     return false;
   }
   if (move->getTarget().getX() == 0 || move->getTarget().getX() == 7) {
-    move->setType(Move::Promotion);
+    move->addType(Move::Promotion);
     return true;
   }
   return false;
 }
 
 void Board::undoLastMove() {
+  if (previousMoves.size() == 0) {
+    return;
+  }
   Move *m = previousMoves.back();
   previousMoves.pop_back();
 
@@ -262,13 +268,13 @@ void Board::undoLastMove() {
   Position target = m->getTarget();
   Chessman *currentChessman = this->board[target.getX()][target.getY()];
 
-  if (m->getType() == Move::Promotion) {
+  if (m->hasType(Move::Promotion)) {
     delete currentChessman;
     currentChessman = capturedChessmen.back();
     capturedChessmen.pop_back();
   }
 
-  if (m->getType() == Move::Capture) {
+  if (m->hasType(Move::Capture)) {
     this->board[target.getX()][target.getY()] = m->getCapturedChessman();
     m->getCapturedChessman()->unsetCapture();
   } else {
@@ -277,9 +283,9 @@ void Board::undoLastMove() {
   this->board[origin.getX()][origin.getY()] = currentChessman;
   currentChessman->setCurrentPosition(origin);
 
-  if (m->getType() == Move::Casteling) {
+  if (m->hasType(Move::Casteling)) {
     undoLastMove();
   }
   this->changeCurrentColour();
-  delete m;
+  //delete m;
 }

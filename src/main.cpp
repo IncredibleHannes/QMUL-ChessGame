@@ -22,6 +22,7 @@ int main(int argc, char const *argv[]) {
     new Move(Position(1,7), Position(0,5)),
   };
   Board board = Board(testMoves);
+
   View view = View();
 
   view.printGreeting();
@@ -74,7 +75,7 @@ int main(int argc, char const *argv[]) {
           noMoveAction = false;
           break;
         case UserAction::Quit :
-          std::cout << "UserAction Quit" << std::endl;
+          view.printQuitMessage();
           delete userAction;
           return 0;
         default:

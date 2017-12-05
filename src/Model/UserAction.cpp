@@ -8,6 +8,9 @@ UserAction::UserAction(Move *move)
   : type(UserAction::MoveAction), move(move){
 
 }
+UserAction::~UserAction() {
+  delete this->move;
+}
 
 UserAction::ActionType UserAction::getType() const {
   return this->type;
