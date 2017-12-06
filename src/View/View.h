@@ -2,6 +2,7 @@
 #define VIEW_H
 
 #include <iostream>
+#include <fstream>
 #include "Board.h"
 #include "Chessman.h"
 #include "UserAction.h"

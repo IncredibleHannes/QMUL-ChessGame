@@ -1,5 +1,6 @@
 #include "View.h"
 
+
 void View::printBoard(Board const *board) const {
   printBoardLabel();
   printTopBoardLine();
@@ -176,9 +177,26 @@ void View::printDraw() const {
 }
 
 void View::saveToFile(std::list<Move*> moves) const {
+  std::ofstream myStream("./SaveFile.txt");
+  if(myStream.is_open())
+    for(Move *m : moves){
+      myStream << (char) ('A' + m->getOrigin().getY()) << m->getOrigin().getX() + 1 << " "
+        << (char) ('A' + m->getTarget().getY()) << m->getTarget().getX() + 1 << std::endl;
+    }
 
 }
 std::list<Move*> View::loadFromFile() const {
-  std::list<Move*> testMoves;
-  return testMoves;
+  std::list<Move*> moves;
+  std::ifstream myStream("./SaveFile.txt");
+  if(!myStream.is_open()) {
+    std::cout << "There is no savefile to open" << std::endl;
+    return moves;
+  }
+  std::string line;
+  while(getline(myStream,line)){
+    if (line.size() == 5) {
+      moves.push_back(new Move(Position(line.substr(0, 2)), Position(line.substr(3, 5))));
+    }
+  }
+  return moves;
 }
