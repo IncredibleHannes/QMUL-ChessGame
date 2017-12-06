@@ -19,6 +19,9 @@ public:
   void printInvalidUserAction() const;
   void printQuitMessage() const;
 
+  void saveToFile(std::list<Move*> moves) const;
+  std::list<Move*> loadFromFile() const;
+
 private:
   void printBoardLine() const;
   void printBottomBoardLine() const;

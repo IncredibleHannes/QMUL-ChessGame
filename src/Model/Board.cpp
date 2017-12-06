@@ -79,12 +79,16 @@ std::list<Move> Board::getAllPossibleMoves(Chessman::Colour colour) const {
   return list;
 }
 
+std::list<Move*> Board::getPreviousMoves() const {
+  return this->previousMoves;
+}
+
 Chessman*** Board::createStartBoard() {
   Chessman *** array2d = new Chessman **[8];
 
   for (int i = 0; i < 8; i++) {
     array2d[i] = new Chessman*[8];
-    for (int j = 2; j < 6; j++) {
+    for (int j = 0; j < 8; j++) {
       array2d[i][j] = nullptr;
     }
   }

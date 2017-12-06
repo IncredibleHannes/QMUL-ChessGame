@@ -17,6 +17,7 @@ public:
   ~Board();
 
   std::list<Move> getAllPossibleMoves(Chessman::Colour colour) const;
+  std::list<Move*> getPreviousMoves() const;
   Chessman ** *getBoard();
   Chessman *getChessman(Position) const;
   bool applyMove(Move *move);

@@ -174,3 +174,11 @@ void View::printDraw() const {
   std::cout << "The game is a Draw!!!" << std::endl;
   std::cout << "The game is finish!" << std::endl;
 }
+
+void View::saveToFile(std::list<Move*> moves) const {
+
+}
+std::list<Move*> View::loadFromFile() const {
+  std::list<Move*> testMoves;
+  return testMoves;
+}

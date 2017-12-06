@@ -21,67 +21,69 @@ int main(int argc, char const *argv[]) {
     new Move(Position(5,6), Position(6,6)),
     new Move(Position(1,7), Position(0,5)),
   };
-  Board board = Board(testMoves);
+  Board *board = new Board(testMoves);
 
   View view = View();
 
   view.printGreeting();
 
   while (true) {
-    if (board.isCheck()) {
+    if (board->isCheck()) {
       view.printCheck();
-      if (board.isCheckmate()) {
+      if (board->isCheckmate()) {
         view.printCheckmate();
-        view.printBoard(&board);
+        view.printBoard(board);
         break;
       }
     }
-    if (board.isDraw()) {
+    if (board->isDraw()) {
       view.printDraw();
-      view.printBoard(&board);
+      view.printBoard(board);
       break;
     }
-    view.printBoard(&board);
+    view.printBoard(board);
 
-    bool noMoveAction = true;
-    while (noMoveAction) {
+    bool noInvalidAction = true;
+    while (noInvalidAction) {
       UserAction *userAction = view.getUserAction();
       Move *move;
       switch (userAction->getType()) {
         case UserAction::Save :
-          std::cout << "UserAction Save" << std::endl;
-          //TODO: implement
-          delete userAction;
+          view.saveToFile(board->getPreviousMoves());
+          noInvalidAction = false;
           break;
         case UserAction::Load :
-          std::cout << "UserAction Load" << std::endl;
-          //TODO: implement
-          delete userAction;
+          delete board;
+          board = new Board(view.loadFromFile());
+          noInvalidAction = false;
           break;
         case UserAction::Undo :
-          delete userAction;
-          board.undoLastMove();
-          noMoveAction = false;
+          board->undoLastMove();
+          noInvalidAction = false;
           break;
         case UserAction::MoveAction :
           move = new Move(*userAction->getMove());
-          if(!board.applyMove(move)) {
+          if(!board->applyMove(move)) {
             view.printInvalidMove();
+            delete move;
+            delete userAction;
             continue;
           }
-          if (board.isPromotion(move)) {
-            board.applyPromotion(move, view.getPromotionType());
+          if (board->isPromotion(move)) {
+            board->applyPromotion(move, view.getPromotionType());
           }
-          delete userAction;
-          noMoveAction = false;
+          noInvalidAction = false;
+          //delete move;
           break;
         case UserAction::Quit :
           view.printQuitMessage();
+          delete board;
           delete userAction;
           return 0;
         default:
           view.printInvalidUserAction();
       }
+      delete userAction;
     }
   }
   return 0;
