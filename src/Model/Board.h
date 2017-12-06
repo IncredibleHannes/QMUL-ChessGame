@@ -18,7 +18,6 @@ public:
 
   std::list<Move> getAllPossibleMoves(Chessman::Colour colour) const;
   std::list<Move*> getPreviousMoves() const;
-  Chessman ** *getBoard();
   Chessman *getChessman(Position) const;
   bool applyMove(Move *move);
   void applyPromotion(Move *move, Chessman::FigureType type);

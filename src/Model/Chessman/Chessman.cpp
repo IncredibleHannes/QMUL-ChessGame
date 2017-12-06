@@ -1,5 +1,4 @@
 #include "Chessman.h"
-
 #include "Board.h"
 
 Chessman::Chessman(Colour colour, Position position)
@@ -10,32 +9,29 @@ Chessman::Colour Chessman::getColour() const {
   return colour;
 }
 
-bool Chessman::isCaptured() const {
-  return captured;
-}
-
-void Chessman::setValue(int value) {
-  this->value = value;
-}
-
-int Chessman::getValue() const {
-  return this->value;
-}
-
 void Chessman::capture() {
   this->captured = true;
+}
+
+bool Chessman::isCaptured() const {
+  return captured;
 }
 
 void Chessman::unsetCapture() {
   this->captured = false;
 }
 
-Chessman::FigureType Chessman::getType() const {
-  return this->type;
+bool Chessman::isMoveValid(const Board &board, const Move &move) const {
+  std::list<Move> moves = this->getPossibleMoves(board);
+  for (std::list<Move>::iterator it = moves.begin(); it != moves.end(); it++) {
+    if (*it == move)
+    { return true; }
+  }
+  return false;
 }
 
-void Chessman::setType(Chessman::FigureType type) {
-  this->type = type;
+Chessman::FigureType Chessman::getType() const {
+  return this->type;
 }
 
 Position Chessman::getCurrentPosition() const {
@@ -50,16 +46,6 @@ void Chessman::setCurrentPosition(Position position) {
 bool Chessman::wasMoved() const {
   return this->moved;
 }
-
-bool Chessman::isMoveValid(const Board &board, const Move &move) const {
-  std::list<Move> moves = this->getPossibleMoves(board);
-  for (std::list<Move>::iterator it = moves.begin(); it != moves.end(); it++) {
-    if (*it == move)
-    { return true; }
-  }
-  return false;
-}
-
 
 Chessman::Colour operator!(Chessman::Colour colour) {
   return static_cast<Chessman::Colour>(! static_cast<bool>(colour));

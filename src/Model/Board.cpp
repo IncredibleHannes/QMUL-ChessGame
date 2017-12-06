@@ -47,7 +47,7 @@ Board::Board(const Board &b) {
   }
 }
 
-Board::~Board(){
+Board::~Board() {
   for (int x = 0; x < 8; x++) {
     for (int y = 0; y < 8; y++) {
       if (this->board[x][y] != nullptr) {
@@ -212,6 +212,38 @@ void Board::applyPromotion(Move *move, Chessman::FigureType type) {
     delete move;
 }
 
+void Board::undoLastMove() {
+  if (previousMoves.size() == 0) {
+    return;
+  }
+  Move *m = previousMoves.back();
+  previousMoves.pop_back();
+
+  Position origin = m->getOrigin();
+  Position target = m->getTarget();
+  Chessman *currentChessman = this->board[target.getX()][target.getY()];
+  if (m->hasType(Move::Promotion)) {
+    delete currentChessman;
+    currentChessman = capturedChessmen.back();
+    capturedChessmen.pop_back();
+  }
+
+  if (m->hasType(Move::Capture)) {
+    this->board[target.getX()][target.getY()] = m->getCapturedChessman()->clone();
+    this->board[target.getX()][target.getY()]->unsetCapture();
+  } else {
+    this->board[target.getX()][target.getY()] = nullptr;
+  }
+  this->board[origin.getX()][origin.getY()] = currentChessman;
+  currentChessman->setCurrentPosition(origin);
+
+  if (m->hasType(Move::Casteling)) {
+    undoLastMove();
+  }
+  this->changeCurrentColour();
+  delete m;
+}
+
 void Board::changeCurrentColour() {
   if (this->currentColour == Chessman::Colour::White) {
     this->currentColour = Chessman::Colour::Black;
@@ -272,36 +304,4 @@ bool Board::isPromotion(Move *move) const {
     return true;
   }
   return false;
-}
-
-void Board::undoLastMove() {
-  if (previousMoves.size() == 0) {
-    return;
-  }
-  Move *m = previousMoves.back();
-  previousMoves.pop_back();
-
-  Position origin = m->getOrigin();
-  Position target = m->getTarget();
-  Chessman *currentChessman = this->board[target.getX()][target.getY()];
-  if (m->hasType(Move::Promotion)) {
-    delete currentChessman;
-    currentChessman = capturedChessmen.back();
-    capturedChessmen.pop_back();
-  }
-
-  if (m->hasType(Move::Capture)) {
-    this->board[target.getX()][target.getY()] = m->getCapturedChessman()->clone();
-    this->board[target.getX()][target.getY()]->unsetCapture();
-  } else {
-    this->board[target.getX()][target.getY()] = nullptr;
-  }
-  this->board[origin.getX()][origin.getY()] = currentChessman;
-  currentChessman->setCurrentPosition(origin);
-
-  if (m->hasType(Move::Casteling)) {
-    undoLastMove();
-  }
-  this->changeCurrentColour();
-  delete m;
 }

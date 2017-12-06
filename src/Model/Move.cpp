@@ -31,16 +31,16 @@ Position Move::getTarget() const {
   return this->target;
 }
 
+void Move::addType(MoveType type) {
+  this->type |= type;
+}
+
 bool Move::hasType(MoveType type) const {
   return this->type & type;
 }
 
 Chessman* Move::getCapturedChessman() const {
   return this->capturedChessman;
-}
-
-void Move::addType(MoveType type) {
-  this->type |= type;
 }
 
 void Move::setCaptureMove(Chessman *chessman) {
