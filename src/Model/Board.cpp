@@ -138,10 +138,12 @@ bool Board::applyMove(Move *move) {
       rookOrigin = new Position(move->getTarget().getX(), 7);
     }
     if (rookTarget != nullptr) {
-      Board::move(new Move(*rookOrigin, *rookTarget));
+      Move *m = new Move(*rookOrigin, *rookTarget);
+      Board::move(m);
       previousMoves.back()->addType(Move::Casteling);
-      delete &rookOrigin;
-      delete &rookTarget;
+      delete m;
+      delete rookOrigin;
+      delete rookTarget;
     }
 
 
