@@ -101,7 +101,7 @@ void View::printInvalidUserAction() const {
 }
 
 void View::printQuitMessage() const {
-  std::cout << "Tank you for playing Chess with us!" << std::endl;
+  std::cout << "Thank you for playing Chess with us!" << std::endl;
 }
 
 Chessman::FigureType View::getPromotionType() const {

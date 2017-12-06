@@ -23,6 +23,7 @@ Board::Board(std::list<Move *> moves)
   this->board = createStartBoard();
   while (moves.size() != 0) {
     applyMove(moves.front());
+    delete moves.front();
     moves.pop_front();
   }
 }
@@ -54,6 +55,10 @@ Board::~Board(){
       }
     }
   }
+  for (int i = 0; i < 8; i++) {
+    delete[] this->board[i];
+  }
+  delete[] this->board;
   for(Chessman* c : this->capturedChessmen) {
     delete c;
   }
@@ -172,8 +177,9 @@ void Board::move(Move *move) {
   this->previousMoves.push_back(new Move(*move));
 }
 
-void Board::applyPromotion(Move const *move, Chessman::FigureType type) {
+void Board::applyPromotion(Move *move, Chessman::FigureType type) {
     Chessman *currentChessman = getChessman(move->getTarget());
+    move->addType(Move::Promotion);
     int x = move->getTarget().getX();
     int y = move->getTarget().getY();
     switch(type) {
@@ -192,7 +198,12 @@ void Board::applyPromotion(Move const *move, Chessman::FigureType type) {
       default:
         break;
     }
+    Move *m = previousMoves.back();
+    previousMoves.pop_back();
+    delete m;
+    previousMoves.push_back(new Move(*move));
     capturedChessmen.push_back(currentChessman);
+    delete move;
 }
 
 void Board::changeCurrentColour() {
@@ -221,16 +232,16 @@ bool Board::isCheckmate() const {
     return false;
   }
   std::list<Move> moves = getAllPossibleMoves(this->currentColour);
+  Board *b = new Board(*this);
   for (Move m : moves) {
-    Board *b = new Board(*this);
     Move *m2 = new Move(m);
     if (b->applyMove(m2)) {
       delete b;
       delete m2;
       return false;
     }
-    delete b;
     delete m2;
+    b->undoLastMove();
   }
   return true;
 }
@@ -267,7 +278,6 @@ void Board::undoLastMove() {
   Position origin = m->getOrigin();
   Position target = m->getTarget();
   Chessman *currentChessman = this->board[target.getX()][target.getY()];
-
   if (m->hasType(Move::Promotion)) {
     delete currentChessman;
     currentChessman = capturedChessmen.back();
@@ -275,8 +285,8 @@ void Board::undoLastMove() {
   }
 
   if (m->hasType(Move::Capture)) {
-    this->board[target.getX()][target.getY()] = m->getCapturedChessman();
-    m->getCapturedChessman()->unsetCapture();
+    this->board[target.getX()][target.getY()] = m->getCapturedChessman()->clone();
+    this->board[target.getX()][target.getY()]->unsetCapture();
   } else {
     this->board[target.getX()][target.getY()] = nullptr;
   }
@@ -287,5 +297,5 @@ void Board::undoLastMove() {
     undoLastMove();
   }
   this->changeCurrentColour();
-  //delete m;
+  delete m;
 }

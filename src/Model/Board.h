@@ -20,7 +20,7 @@ public:
   Chessman ** *getBoard();
   Chessman *getChessman(Position) const;
   bool applyMove(Move *move);
-  void applyPromotion(Move const *move, Chessman::FigureType type);
+  void applyPromotion(Move *move, Chessman::FigureType type);
   void undoLastMove();
   bool isCheck() const;
   bool isCheckmate() const;

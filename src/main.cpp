@@ -27,7 +27,6 @@ int main(int argc, char const *argv[]) {
 
   view.printGreeting();
 
-
   while (true) {
     if (board.isCheck()) {
       view.printCheck();
@@ -47,6 +46,7 @@ int main(int argc, char const *argv[]) {
     bool noMoveAction = true;
     while (noMoveAction) {
       UserAction *userAction = view.getUserAction();
+      Move *move;
       switch (userAction->getType()) {
         case UserAction::Save :
           std::cout << "UserAction Save" << std::endl;
@@ -64,12 +64,13 @@ int main(int argc, char const *argv[]) {
           noMoveAction = false;
           break;
         case UserAction::MoveAction :
-          if(!board.applyMove(userAction->getMove())) {
+          move = new Move(*userAction->getMove());
+          if(!board.applyMove(move)) {
             view.printInvalidMove();
             continue;
           }
-          if (board.isPromotion(userAction->getMove())) {
-            board.applyPromotion(userAction->getMove(), view.getPromotionType());
+          if (board.isPromotion(move)) {
+            board.applyPromotion(move, view.getPromotionType());
           }
           delete userAction;
           noMoveAction = false;
