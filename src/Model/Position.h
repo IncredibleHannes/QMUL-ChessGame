@@ -1,7 +1,7 @@
 /**
-    ChessGame
-    Position.h
-    Purpose: Representing the a position on the chessboard. Is used inside the
+    <h1>Position</h1>
+    <h3>Position.h</h3><br>
+    This class is representing the a position on the chessboard. Is used inside the
     Move class.
 
 

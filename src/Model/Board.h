@@ -1,7 +1,7 @@
 /**
-    ChessGame
-    Board.h
-    Purpose: Representing the chessboard. This class stores all figures. It
+    <h1>Board</h1>
+    <h3>Board.h</h3><br>
+    This class is representing the chessboard. This class stores all figures. It
     is responsible for applying and undoing moves, and holds the game logic
     check and checkmate as well as for promotion and casteling moves
 

@@ -1,7 +1,7 @@
 /**
-    ChessGame
-    UserAction.h
-    Purpose: This class representing the actions a user can make in this game.
+    <h1>UserAction</h1>
+    <h3>UserAction.h</h3><br>
+    This class is representing the actions a user can make in this game.
     Useractions can be of different types.
 
 

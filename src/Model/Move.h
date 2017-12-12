@@ -1,7 +1,7 @@
 /**
-    ChessGame
-    Move.h
-    Purpose: Representing the a move in the game. A move can have multiple
+    <h1>Move</h1>
+    <h3>Move.h</h3><br>
+    This class is representing the a move in the game. A move can have multiple
     different types corresponding to the sandart chess rules.
     This class implements no game logic. Types will be set from outside.
 
