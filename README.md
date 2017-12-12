@@ -10,7 +10,7 @@ make clean && make
 *Note: Make sure you have the latest gcc compiler version installed to compile
 the code*
 
-## How to run
+## How to execute
 To start the game, simply execute the following command in your teriminal at the
 project root folder.
 ```bash
