@@ -45,3 +45,6 @@ Quit the game:
 >:q
 
 *Note: It is only possible to save one savegame. The file location is at the rootfolder: SaveFile.txt. If you want to protect your savegame from overriding, move it to another location*
+
+## Documentation
+This project is documented using doxygen. The documentation can be found [here](https://incrediblehannes.github.io/QMUL-ChessGame/html/index.html)
