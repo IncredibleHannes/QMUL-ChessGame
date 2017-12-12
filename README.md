@@ -23,6 +23,7 @@ a figure just type in its coordinates. For example to make an initial move type 
 >Please select a figure: E2
 >
 >Please select a target: E4
+
 *Note: The input is case insensitive*
 
 If you type in a invalid input, you will be asked to retype in your move.
