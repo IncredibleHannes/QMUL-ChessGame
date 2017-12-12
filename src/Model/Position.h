@@ -1,3 +1,14 @@
+/**
+    ChessGame
+    Position.h
+    Purpose: Representing the a position on the chessboard. Is used inside the
+    Move class.
+
+
+    @author Johannes Hartmann
+    @version 1.0 2017-12-12
+*/
+
 #ifndef POSITION_H
 #define POSITION_H
 

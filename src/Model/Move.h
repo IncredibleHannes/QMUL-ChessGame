@@ -1,3 +1,15 @@
+/**
+    ChessGame
+    Move.h
+    Purpose: Representing the a move in the game. A move can have multiple
+    different types corresponding to the sandart chess rules.
+    This class implements no game logic. Types will be set from outside.
+
+
+    @author Johannes Hartmann
+    @version 1.0 2017-12-12
+*/
+
 #ifndef MOVE_H
 #define MOVE_H
 
