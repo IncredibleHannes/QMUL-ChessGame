@@ -1,18 +1,20 @@
 <map id="src/Model/Board.h" name="src/Model/Board.h">
-<area shape="rect" id="node2" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="5,177,103,203"/>
-<area shape="rect" id="node3" href="$View_8h.html" title="src/View/View.h" alt="" coords="134,87,251,114"/>
-<area shape="rect" id="node5" href="$Board_8cpp.html" title="src/Model/Board.cpp" alt="" coords="553,266,696,293"/>
-<area shape="rect" id="node6" href="$StraightLineMover_8h.html" title="src/Model/Chessman\l/StraightLineMover.h" alt="" coords="735,80,882,121"/>
-<area shape="rect" id="node8" href="$Bishop_8cpp.html" title="src/Model/Chessman\l/Bishop.cpp" alt="" coords="1026,259,1173,300"/>
-<area shape="rect" id="node10" href="$Queen_8cpp.html" title="src/Model/Chessman\l/Queen.cpp" alt="" coords="775,259,922,300"/>
-<area shape="rect" id="node12" href="$Rook_8cpp.html" title="src/Model/Chessman\l/Rook.cpp" alt="" coords="275,259,422,300"/>
-<area shape="rect" id="node14" href="$Chessman_8cpp.html" title="src/Model/Chessman\l/Chessman.cpp" alt="" coords="1178,80,1325,121"/>
-<area shape="rect" id="node15" href="$King_8cpp.html" title="src/Model/Chessman\l/King.cpp" alt="" coords="1349,80,1495,121"/>
-<area shape="rect" id="node16" href="$Knight_8cpp.html" title="src/Model/Chessman\l/Knight.cpp" alt="" coords="1519,80,1666,121"/>
-<area shape="rect" id="node17" href="$Pawn_8cpp.html" title="src/Model/Chessman\l/Pawn.cpp" alt="" coords="1690,80,1837,121"/>
-<area shape="rect" id="node4" href="$View_8cpp.html" title="src/View/View.cpp" alt="" coords="127,177,258,203"/>
-<area shape="rect" id="node7" href="$Bishop_8h.html" title="src/Model/Chessman\l/Bishop.h" alt="" coords="906,169,1053,211"/>
-<area shape="rect" id="node9" href="$Queen_8h.html" title="src/Model/Chessman\l/Queen.h" alt="" coords="735,169,882,211"/>
-<area shape="rect" id="node11" href="$Rook_8h.html" title="src/Model/Chessman\l/Rook.h" alt="" coords="383,169,530,211"/>
-<area shape="rect" id="node13" href="$StraightLineMover_8cpp.html" title="src/Model/Chessman\l/StraightLineMover.cpp" alt="" coords="555,169,711,211"/>
+<area shape="rect" id="node2" href="$Controller_8h.html" title="src/Controller/Controller.h" alt="" coords="93,177,263,203"/>
+<area shape="rect" id="node5" href="$Board_8cpp.html" title="src/Model/Board.cpp" alt="" coords="721,266,864,293"/>
+<area shape="rect" id="node6" href="$StraightLineMover_8h.html" title="src/Model/Chessman\l/StraightLineMover.h" alt="" coords="895,80,1042,121"/>
+<area shape="rect" id="node8" href="$Bishop_8cpp.html" title="src/Model/Chessman\l/Bishop.cpp" alt="" coords="1186,259,1333,300"/>
+<area shape="rect" id="node10" href="$Queen_8cpp.html" title="src/Model/Chessman\l/Queen.cpp" alt="" coords="935,259,1082,300"/>
+<area shape="rect" id="node12" href="$Rook_8cpp.html" title="src/Model/Chessman\l/Rook.cpp" alt="" coords="463,259,610,300"/>
+<area shape="rect" id="node14" href="$Chessman_8cpp.html" title="src/Model/Chessman\l/Chessman.cpp" alt="" coords="1338,80,1485,121"/>
+<area shape="rect" id="node15" href="$King_8cpp.html" title="src/Model/Chessman\l/King.cpp" alt="" coords="1509,80,1655,121"/>
+<area shape="rect" id="node16" href="$Knight_8cpp.html" title="src/Model/Chessman\l/Knight.cpp" alt="" coords="1679,80,1826,121"/>
+<area shape="rect" id="node17" href="$Pawn_8cpp.html" title="src/Model/Chessman\l/Pawn.cpp" alt="" coords="1850,80,1997,121"/>
+<area shape="rect" id="node18" href="$View_8h.html" title="src/View/View.h" alt="" coords="294,87,411,114"/>
+<area shape="rect" id="node3" href="$Controler_8cpp.html" title="src/Controller/Controler.cpp" alt="" coords="5,266,188,293"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="212,266,309,293"/>
+<area shape="rect" id="node7" href="$Bishop_8h.html" title="src/Model/Chessman\l/Bishop.h" alt="" coords="1066,169,1213,211"/>
+<area shape="rect" id="node9" href="$Queen_8h.html" title="src/Model/Chessman\l/Queen.h" alt="" coords="895,169,1042,211"/>
+<area shape="rect" id="node11" href="$Rook_8h.html" title="src/Model/Chessman\l/Rook.h" alt="" coords="543,169,690,211"/>
+<area shape="rect" id="node13" href="$StraightLineMover_8cpp.html" title="src/Model/Chessman\l/StraightLineMover.cpp" alt="" coords="715,169,871,211"/>
+<area shape="rect" id="node19" href="$View_8cpp.html" title="src/View/View.cpp" alt="" coords="287,177,418,203"/>
 </map>

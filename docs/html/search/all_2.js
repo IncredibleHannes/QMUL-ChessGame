@@ -8,5 +8,8 @@ var searchData=
   ['chessman_2ecpp',['Chessman.cpp',['../Chessman_8cpp.html',1,'']]],
   ['chessman_2eh',['Chessman.h',['../Chessman_8h.html',1,'']]],
   ['clone',['clone',['../classBishop.html#a1e1e1e5670681afdf060037d6f61df5e',1,'Bishop::clone()'],['../classChessman.html#a09f0e6024f9623cf6a1fa8a679459112',1,'Chessman::clone()'],['../classKing.html#a35926fc0bbe7e7096ec642c12d0f0a57',1,'King::clone()'],['../classKnight.html#ab69c5d5f091bf789a9d1087f6bf71fc0',1,'Knight::clone()'],['../classPawn.html#ad4a2b201b1de8058a692c7464c61ffff',1,'Pawn::clone()'],['../classQueen.html#abf573a90cd39c9df53e43cd3d151b93e',1,'Queen::clone()'],['../classRook.html#a2626d0996ccd602136381a2839f35222',1,'Rook::clone()']]],
-  ['colour',['colour',['../classChessman.html#a16ad34cc6a6dc4027e8d5ed7797a0686',1,'Chessman::colour()'],['../classChessman.html#a3dbab66b075daf23d88439d1190217cb',1,'Chessman::Colour()']]]
+  ['colour',['colour',['../classChessman.html#a16ad34cc6a6dc4027e8d5ed7797a0686',1,'Chessman::colour()'],['../classChessman.html#a3dbab66b075daf23d88439d1190217cb',1,'Chessman::Colour()']]],
+  ['controler_2ecpp',['Controler.cpp',['../Controler_8cpp.html',1,'']]],
+  ['controller',['Controller',['../classController.html',1,'']]],
+  ['controller_2eh',['Controller.h',['../Controller_8h.html',1,'']]]
 ];

@@ -1,4 +1,6 @@
 <map id="src/View/View.h" name="src/View/View.h">
-<area shape="rect" id="node2" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="5,80,103,107"/>
-<area shape="rect" id="node3" href="$View_8cpp.html" title="src/View/View.cpp" alt="" coords="127,80,258,107"/>
+<area shape="rect" id="node2" href="$Controller_8h.html" title="src/Controller/Controller.h" alt="" coords="93,80,263,107"/>
+<area shape="rect" id="node5" href="$View_8cpp.html" title="src/View/View.cpp" alt="" coords="287,80,418,107"/>
+<area shape="rect" id="node3" href="$Controler_8cpp.html" title="src/Controller/Controler.cpp" alt="" coords="5,155,188,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="212,155,309,181"/>
 </map>
