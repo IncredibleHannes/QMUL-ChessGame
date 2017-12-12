@@ -1,0 +1,3 @@
+<map id="Knight" name="Knight">
+<area shape="rect" id="node2" href="$classChessman.html" title="{Chessman\n|# colour\l# captured\l# moved\l# type\l# position\l|+ Chessman()\l+ clone()\l+ ~Chessman()\l+ getColour()\l+ capture()\l+ isCaptured()\l+ unsetCapture()\l+ isMoveValid()\l+ getType()\l+ getCurrentPosition()\l+ setCurrentPosition()\l+ wasMoved()\l+ getPossibleMoves()\l}" alt="" coords="5,5,156,317"/>
+</map>

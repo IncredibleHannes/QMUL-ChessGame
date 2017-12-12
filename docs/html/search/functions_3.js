@@ -11,7 +11,7 @@ var searchData=
   ['getpreviousmoves',['getPreviousMoves',['../classBoard.html#adcfab776dd548893cc23dada9c15c6e5',1,'Board']]],
   ['getpromotiontype',['getPromotionType',['../classView.html#ab9b1d1951a26df4f8ea19ab95e7bdd70',1,'View']]],
   ['gettarget',['getTarget',['../classMove.html#a726bba425e889ba38cbefcad19181f06',1,'Move']]],
-  ['gettype',['getType',['../classChessman.html#a829094f48d49be0d3a50f88022f94437',1,'Chessman']]],
+  ['gettype',['getType',['../classChessman.html#a829094f48d49be0d3a50f88022f94437',1,'Chessman::getType()'],['../classUserAction.html#a8473f290ff24c3dd2211d82d119d6903',1,'UserAction::getType()']]],
   ['getuseraction',['getUserAction',['../classView.html#af3eab745de4783af05802db48741df16',1,'View']]],
   ['getx',['getX',['../classPosition.html#a07f4fb7af5a4e67c8712d5addc85becd',1,'Position']]],
   ['gety',['getY',['../classPosition.html#a01c26d9b7c3a6e69081cb477a21b32ce',1,'Position']]]

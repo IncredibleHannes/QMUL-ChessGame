@@ -1,0 +1,4 @@
+<map id="Queen" name="Queen">
+<area shape="rect" id="node2" href="$classStraightLineMover.html" title="{StraightLineMover\n||+ StraightLineMover()\l# checkMove()\l}" alt="" coords="7,365,154,457"/>
+<area shape="rect" id="node3" href="$classChessman.html" title="{Chessman\n|# colour\l# captured\l# moved\l# type\l# position\l|+ Chessman()\l+ clone()\l+ ~Chessman()\l+ getColour()\l+ capture()\l+ isCaptured()\l+ unsetCapture()\l+ isMoveValid()\l+ getType()\l+ getCurrentPosition()\l+ setCurrentPosition()\l+ wasMoved()\l+ getPossibleMoves()\l}" alt="" coords="5,5,156,317"/>
+</map>

@@ -93,6 +93,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="Board_8h_source.html">Board.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Board:</div>
+<div class="dyncontent">
+<div class="center"><img src="classBoard__coll__graph.png" border="0" usemap="#Board_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -104,7 +109,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac77f209904bb37545295c17649a9dc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af73f45730119a1fd8f6670f53f959e68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#af73f45730119a1fd8f6670f53f959e68">~Board</a> ()</td></tr>
 <tr class="separator:af73f45730119a1fd8f6670f53f959e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48620e9a5027136b81f953a0c047c653"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classMove.html">Move</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a48620e9a5027136b81f953a0c047c653">getAllPossibleMoves</a> (Chessman::Colour colour) const </td></tr>
+<tr class="memitem:a48620e9a5027136b81f953a0c047c653"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classMove.html">Move</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a48620e9a5027136b81f953a0c047c653">getAllPossibleMoves</a> (<a class="el" href="classChessman.html#a3dbab66b075daf23d88439d1190217cb">Chessman::Colour</a> colour) const </td></tr>
 <tr class="separator:a48620e9a5027136b81f953a0c047c653"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcfab776dd548893cc23dada9c15c6e5"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classMove.html">Move</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#adcfab776dd548893cc23dada9c15c6e5">getPreviousMoves</a> () const </td></tr>
 <tr class="separator:adcfab776dd548893cc23dada9c15c6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,7 +117,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa8547328b5e9bbdcd2fbc5bfcfc85460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50b8f96503afcc2903fb1a4df03b6cc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a50b8f96503afcc2903fb1a4df03b6cc8">applyMove</a> (<a class="el" href="classMove.html">Move</a> *move)</td></tr>
 <tr class="separator:a50b8f96503afcc2903fb1a4df03b6cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22183de56a3798ad5af8ad3e8262b03a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a22183de56a3798ad5af8ad3e8262b03a">applyPromotion</a> (<a class="el" href="classMove.html">Move</a> *move, Chessman::FigureType type)</td></tr>
+<tr class="memitem:a22183de56a3798ad5af8ad3e8262b03a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#a22183de56a3798ad5af8ad3e8262b03a">applyPromotion</a> (<a class="el" href="classMove.html">Move</a> *move, <a class="el" href="classChessman.html#af12209c88bb85dd4ce9a017bb91a7422">Chessman::FigureType</a> type)</td></tr>
 <tr class="separator:a22183de56a3798ad5af8ad3e8262b03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa59472afa4048d4015297106de4ce5de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoard.html#aa59472afa4048d4015297106de4ce5de">undoLastMove</a> ()</td></tr>
 <tr class="separator:aa59472afa4048d4015297106de4ce5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,7 +132,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h1><a class="el" href="classBoard.html">Board</a></h1>
-<h3><a class="el" href="Board_8h_source.html">Board.h</a></h3>
+<h3><a class="el" href="Board_8h.html">Board.h</a></h3>
 <p><br />
  This class is representing the chessboard. This class stores all figures. It is responsible for applying and undoing moves, and holds the game logic check and checkmate as well as for promotion and casteling moves</p>
 <dl class="section author"><dt>Author</dt><dd>Johannes Hartmann </dd></dl>
@@ -247,7 +252,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Chessman::FigureType&#160;</td>
+          <td class="paramtype"><a class="el" href="classChessman.html#af12209c88bb85dd4ce9a017bb91a7422">Chessman::FigureType</a>&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
@@ -274,7 +279,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::list&lt; <a class="el" href="classMove.html">Move</a> &gt; Board::getAllPossibleMoves </td>
           <td>(</td>
-          <td class="paramtype">Chessman::Colour&#160;</td>
+          <td class="paramtype"><a class="el" href="classChessman.html#a3dbab66b075daf23d88439d1190217cb">Chessman::Colour</a>&#160;</td>
           <td class="paramname"><em>colour</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -415,7 +420,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/Model/<a class="el" href="Board_8h_source.html">Board.h</a></li>
-<li>src/Model/Board.cpp</li>
+<li>src/Model/<a class="el" href="Board_8cpp.html">Board.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

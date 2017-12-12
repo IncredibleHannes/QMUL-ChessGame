@@ -1,0 +1,6 @@
+<map id="StraightLineMover" name="StraightLineMover">
+<area shape="rect" id="node3" href="$classBishop.html" title="{Bishop\n||+ Bishop()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="5,505,155,612"/>
+<area shape="rect" id="node4" href="$classQueen.html" title="{Queen\n||+ Queen()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="179,505,328,612"/>
+<area shape="rect" id="node5" href="$classRook.html" title="{Rook\n||+ Rook()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="352,505,501,612"/>
+<area shape="rect" id="node2" href="$classChessman.html" title="{Chessman\n|# colour\l# captured\l# moved\l# type\l# position\l|+ Chessman()\l+ clone()\l+ ~Chessman()\l+ getColour()\l+ capture()\l+ isCaptured()\l+ unsetCapture()\l+ isMoveValid()\l+ getType()\l+ getCurrentPosition()\l+ setCurrentPosition()\l+ wasMoved()\l+ getPossibleMoves()\l}" alt="" coords="178,5,329,317"/>
+</map>

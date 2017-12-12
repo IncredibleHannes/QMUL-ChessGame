@@ -1,3 +1,4 @@
+/** @file */
 /**
     <h1>main</h1>
     <h3>Main.cpp</h3><br>
@@ -15,6 +16,12 @@
 #include "Model/Move.h"
 #include "Model/UserAction.h"
 
+/**
+ * Main function of the programm
+ * @param  argc This application has no arguments
+ * @param  argv This application has no arguments
+ * @return      [description]
+ */
 int main(int argc, char const *argv[]) {
 
   Board *board = new Board();

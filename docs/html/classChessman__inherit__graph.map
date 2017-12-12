@@ -1,0 +1,9 @@
+<map id="Chessman" name="Chessman">
+<area shape="rect" id="node2" href="$classKing.html" title="{King\n||+ King()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="5,365,155,472"/>
+<area shape="rect" id="node3" href="$classKnight.html" title="{Knight\n||+ Knight()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="179,365,328,472"/>
+<area shape="rect" id="node4" href="$classPawn.html" title="{Pawn\n||+ Pawn()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="352,365,501,472"/>
+<area shape="rect" id="node5" href="$classStraightLineMover.html" title="{StraightLineMover\n||+ StraightLineMover()\l# checkMove()\l}" alt="" coords="525,373,672,465"/>
+<area shape="rect" id="node6" href="$classBishop.html" title="{Bishop\n||+ Bishop()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="351,520,500,627"/>
+<area shape="rect" id="node7" href="$classQueen.html" title="{Queen\n||+ Queen()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="524,520,673,627"/>
+<area shape="rect" id="node8" href="$classRook.html" title="{Rook\n||+ Rook()\l+ clone()\l+ getPossibleMoves()\l}" alt="" coords="697,520,847,627"/>
+</map>

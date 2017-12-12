@@ -92,13 +92,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Move Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Move_8h_source.html">Move.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Move:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMove__coll__graph.png" border="0" usemap="#Move_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ac6bcc30080165c853b4397c2b699c8b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6bcc30080165c853b4397c2b699c8b6"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>MoveType</b> : int { <b>Normal</b> = 0x00, 
-<b>Capture</b> = 0x01, 
-<b>Casteling</b> = 0x02, 
-<b>Promotion</b> = 0x04
+<tr class="memitem:ac6bcc30080165c853b4397c2b699c8b6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6">MoveType</a> : int { <a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6ab4f079190bd63ffeb758c14f97cfc49b">Normal</a> = 0x00, 
+<a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6a6ae3afe21dcd3e297a7111247316585e">Capture</a> = 0x01, 
+<a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6a3145ee20efe15e4beb8b1a0b786aad51">Casteling</a> = 0x02, 
+<a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6a96a70f3926623d745d6fcfcd7a98faab">Promotion</a> = 0x04
  }</td></tr>
 <tr class="separator:ac6bcc30080165c853b4397c2b699c8b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -106,7 +113,7 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7be57a0c5d91e4d9c8e8d90597093a3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#a7be57a0c5d91e4d9c8e8d90597093a3a">Move</a> (<a class="el" href="classPosition.html">Position</a> origin, <a class="el" href="classPosition.html">Position</a> target)</td></tr>
 <tr class="separator:a7be57a0c5d91e4d9c8e8d90597093a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a2e9fb0bd858f8e19f174e315b5f77a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#a1a2e9fb0bd858f8e19f174e315b5f77a">Move</a> (<a class="el" href="classPosition.html">Position</a> origin, <a class="el" href="classPosition.html">Position</a> target, MoveType type)</td></tr>
+<tr class="memitem:a1a2e9fb0bd858f8e19f174e315b5f77a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#a1a2e9fb0bd858f8e19f174e315b5f77a">Move</a> (<a class="el" href="classPosition.html">Position</a> origin, <a class="el" href="classPosition.html">Position</a> target, <a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6">MoveType</a> type)</td></tr>
 <tr class="separator:a1a2e9fb0bd858f8e19f174e315b5f77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8a007087ea49c9f77edfe2c10e373e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#ad8a007087ea49c9f77edfe2c10e373e4">Move</a> (const <a class="el" href="classMove.html">Move</a> &amp;move)</td></tr>
 <tr class="separator:ad8a007087ea49c9f77edfe2c10e373e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,9 +123,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa89377ccb1b108b541987f8a3111dcd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a726bba425e889ba38cbefcad19181f06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPosition.html">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#a726bba425e889ba38cbefcad19181f06">getTarget</a> () const </td></tr>
 <tr class="separator:a726bba425e889ba38cbefcad19181f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac929711703c1726f8f4f440030d63bcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#ac929711703c1726f8f4f440030d63bcf">addType</a> (MoveType type)</td></tr>
+<tr class="memitem:ac929711703c1726f8f4f440030d63bcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#ac929711703c1726f8f4f440030d63bcf">addType</a> (<a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6">MoveType</a> type)</td></tr>
 <tr class="separator:ac929711703c1726f8f4f440030d63bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a329f3efc171daf98389435a638733619"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#a329f3efc171daf98389435a638733619">hasType</a> (MoveType type) const </td></tr>
+<tr class="memitem:a329f3efc171daf98389435a638733619"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#a329f3efc171daf98389435a638733619">hasType</a> (<a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6">MoveType</a> type) const </td></tr>
 <tr class="separator:a329f3efc171daf98389435a638733619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad806262f72c25d42e22d88fb142c1586"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classChessman.html">Chessman</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#ad806262f72c25d42e22d88fb142c1586">getCapturedChessman</a> () const </td></tr>
 <tr class="separator:ad806262f72c25d42e22d88fb142c1586"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +134,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abe8b2d0167fba517580fabf04abcba33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMove.html#abe8b2d0167fba517580fabf04abcba33">operator==</a> (const <a class="el" href="classMove.html">Move</a> &amp;toCompare)</td></tr>
 <tr class="separator:abe8b2d0167fba517580fabf04abcba33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="ac6bcc30080165c853b4397c2b699c8b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6">Move::MoveType</a> : int</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="ac6bcc30080165c853b4397c2b699c8b6ab4f079190bd63ffeb758c14f97cfc49b"></a>Normal&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ac6bcc30080165c853b4397c2b699c8b6a6ae3afe21dcd3e297a7111247316585e"></a>Capture&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ac6bcc30080165c853b4397c2b699c8b6a3145ee20efe15e4beb8b1a0b786aad51"></a>Casteling&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ac6bcc30080165c853b4397c2b699c8b6a96a70f3926623d745d6fcfcd7a98faab"></a>Promotion&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a7be57a0c5d91e4d9c8e8d90597093a3a"></a>
 <div class="memitem">
@@ -180,7 +210,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Move::MoveType&#160;</td>
+          <td class="paramtype"><a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6">Move::MoveType</a>&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
@@ -247,7 +277,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Move::addType </td>
           <td>(</td>
-          <td class="paramtype">MoveType&#160;</td>
+          <td class="paramtype"><a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6">MoveType</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
@@ -317,7 +347,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool Move::hasType </td>
           <td>(</td>
-          <td class="paramtype">MoveType&#160;</td>
+          <td class="paramtype"><a class="el" href="classMove.html#ac6bcc30080165c853b4397c2b699c8b6">MoveType</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -374,7 +404,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/Model/<a class="el" href="Move_8h_source.html">Move.h</a></li>
-<li>src/Model/Move.cpp</li>
+<li>src/Model/<a class="el" href="Move_8cpp.html">Move.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
