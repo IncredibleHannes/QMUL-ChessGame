@@ -91,6 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Knight Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Knight_8h_source.html">Knight.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Knight:</div>
 <div class="dyncontent">
@@ -108,8 +110,7 @@ Collaboration diagram for Knight:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6bfcda1e1e78ca1d56693dd5414ee6f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6bfcda1e1e78ca1d56693dd5414ee6f2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Knight</b> (Chessman::Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
+<tr class="memitem:a6bfcda1e1e78ca1d56693dd5414ee6f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnight.html#a6bfcda1e1e78ca1d56693dd5414ee6f2">Knight</a> (Chessman::Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
 <tr class="separator:a6bfcda1e1e78ca1d56693dd5414ee6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab69c5d5f091bf789a9d1087f6bf71fc0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classChessman.html">Chessman</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKnight.html#ab69c5d5f091bf789a9d1087f6bf71fc0">clone</a> () const </td></tr>
 <tr class="separator:ab69c5d5f091bf789a9d1087f6bf71fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +175,47 @@ FigureType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></
 <a class="el" href="classPosition.html">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><b>position</b></td></tr>
 <tr class="separator:a1e5a587e0718b9996e45989ac59df71c inherit pro_attribs_classChessman"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h1><a class="el" href="classKnight.html">Knight</a></h1>
+<h3><a class="el" href="Knight_8h_source.html">Knight.h</a></h3>
+<p><br />
+ This class represents a knight at the chess game.</p>
+<dl class="section author"><dt>Author</dt><dd>Johannes Hartmann </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 2017-12-12 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a6bfcda1e1e78ca1d56693dd5414ee6f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Knight::Knight </td>
+          <td>(</td>
+          <td class="paramtype">Chessman::Colour&#160;</td>
+          <td class="paramname"><em>colour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPosition.html">Position</a>&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor to create the chessman </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>of the chessman </td></tr>
+    <tr><td class="paramname">position</td><td>of the chessman </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ab69c5d5f091bf789a9d1087f6bf71fc0"></a>
 <div class="memitem">
@@ -195,7 +237,7 @@ FigureType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></
   </tr>
 </table>
 </div><div class="memdoc">
-<p>A virtual methode to generate a copy of the current chessman. Since chessman is abstract, tis mehtode functionates as a copyconstructor. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the new copied chessman. </dd></dl>
+<p>This function replaces the copyconstructor. </p><dl class="section return"><dt>Returns</dt><dd>a pointer to the new cloend chessman </dd></dl>
 
 <p>Implements <a class="el" href="classChessman.html#a09f0e6024f9623cf6a1fa8a679459112">Chessman</a>.</p>
 
@@ -222,13 +264,13 @@ FigureType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This function holds the gamelogic of each chessman. Therefore it is abstract and must be implemeted by each subclass. For a given board it calcualtes all possible moves that this figure can do. If the user is still in check after this move must be checked by the caller. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>For a given board this function returns all possible moves for this figure. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">board</td><td>context on witch all possible moves will be calculated </td></tr>
+    <tr><td class="paramname">board</td><td>to calculate the moves on </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>list of moves that this figure can do. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>list of all possible moves </dd></dl>
 
 <p>Implements <a class="el" href="classChessman.html#a014262041882bbc494153d7e238108cb">Chessman</a>.</p>
 

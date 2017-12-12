@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['setcapturemove',['setCaptureMove',['../classMove.html#a5082d929df24e6c3f8afa601e1b33da0',1,'Move']]],
-  ['setcurrentposition',['setCurrentPosition',['../classChessman.html#a33dd03dcab313443ea5f58e820926163',1,'Chessman']]],
-  ['straightlinemover',['StraightLineMover',['../classStraightLineMover.html',1,'']]]
+  ['rook',['Rook',['../classRook.html',1,'Rook'],['../classRook.html#a9f7409fbdf4bd35c3b1ca9e6e5586683',1,'Rook::Rook()']]]
 ];

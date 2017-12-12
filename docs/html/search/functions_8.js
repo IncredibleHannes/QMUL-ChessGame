@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['position',['Position',['../classPosition.html#a369a577425f8ba02e8750d04b6a088db',1,'Position::Position()'],['../classPosition.html#a6e36cf0fee251e74cfedb86f4e99558d',1,'Position::Position(int x, int y)'],['../classPosition.html#a526ea3199d2af8e58d775262ba8423a9',1,'Position::Position(std::string y)'],['../classPosition.html#a23a9a612135651d1c902164fc59ee4dc',1,'Position::Position(const Position &amp;other)=default']]]
+  ['move',['Move',['../classMove.html#a7be57a0c5d91e4d9c8e8d90597093a3a',1,'Move::Move(Position origin, Position target)'],['../classMove.html#a1a2e9fb0bd858f8e19f174e315b5f77a',1,'Move::Move(Position origin, Position target, MoveType type)'],['../classMove.html#ad8a007087ea49c9f77edfe2c10e373e4',1,'Move::Move(const Move &amp;move)']]]
 ];

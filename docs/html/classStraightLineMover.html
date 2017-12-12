@@ -92,6 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">StraightLineMover Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="StraightLineMover_8h_source.html">StraightLineMover.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for StraightLineMover:</div>
 <div class="dyncontent">
@@ -109,8 +111,7 @@ Collaboration diagram for StraightLineMover:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aab8180cb7f1f6f13177a34e7c62411e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab8180cb7f1f6f13177a34e7c62411e6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>StraightLineMover</b> (Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
+<tr class="memitem:aab8180cb7f1f6f13177a34e7c62411e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightLineMover.html#aab8180cb7f1f6f13177a34e7c62411e6">StraightLineMover</a> (Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
 <tr class="separator:aab8180cb7f1f6f13177a34e7c62411e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classChessman"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classChessman')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classChessman.html">Chessman</a></td></tr>
 <tr class="memitem:a52ea654611769eceb51e3904ff0b596d inherit pub_methods_classChessman"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessman.html#a52ea654611769eceb51e3904ff0b596d">Chessman</a> (Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
@@ -142,8 +143,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:adfe56f66941929bf7eff9072e6c8ff3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfe56f66941929bf7eff9072e6c8ff3c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>checkMove</b> (const <a class="el" href="classBoard.html">Board</a> &amp;board, std::list&lt; <a class="el" href="classMove.html">Move</a> &gt; &amp;moves, bool &amp;direction, int dx, int dy) const </td></tr>
+<tr class="memitem:adfe56f66941929bf7eff9072e6c8ff3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightLineMover.html#adfe56f66941929bf7eff9072e6c8ff3c">checkMove</a> (const <a class="el" href="classBoard.html">Board</a> &amp;board, std::list&lt; <a class="el" href="classMove.html">Move</a> &gt; &amp;moves, bool &amp;direction, int dx, int dy) const </td></tr>
 <tr class="separator:adfe56f66941929bf7eff9072e6c8ff3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -181,6 +181,110 @@ FigureType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></
 <a class="el" href="classPosition.html">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><b>position</b></td></tr>
 <tr class="separator:a1e5a587e0718b9996e45989ac59df71c inherit pro_attribs_classChessman"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h1><a class="el" href="classStraightLineMover.html">StraightLineMover</a></h1>
+<h3><a class="el" href="StraightLineMover_8h_source.html">StraightLineMover.h</a></h3>
+<p><br />
+ This class is a subclass of a chessman, combines the rules of figures that can move in straight lines across the chessboard. <a class="el" href="classQueen.html">Queen</a> <a class="el" href="classBishop.html">Bishop</a> and <a class="el" href="classRook.html">Rook</a> are straight line mover. The purpose of this class is to avoid code duplicates</p>
+<dl class="section author"><dt>Author</dt><dd>Johannes Hartmann </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 2017-12-12 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aab8180cb7f1f6f13177a34e7c62411e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StraightLineMover::StraightLineMover </td>
+          <td>(</td>
+          <td class="paramtype">Chessman::Colour&#160;</td>
+          <td class="paramname"><em>colour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPosition.html">Position</a>&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor to create the <a class="el" href="classStraightLineMover.html">StraightLineMover</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>of the chessman </td></tr>
+    <tr><td class="paramname">position</td><td>of the chessman </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="adfe56f66941929bf7eff9072e6c8ff3c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StraightLineMover::checkMove </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBoard.html">Board</a> &amp;&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::list&lt; <a class="el" href="classMove.html">Move</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>moves</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This methode computes all possible moves into a given direction. The direction will be represented as offsets dx and dy. All moves will be stored in the given move list. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>to calcualte the moves on </td></tr>
+    <tr><td class="paramname">moves</td><td>list of moves to store the valid moves in </td></tr>
+    <tr><td class="paramname">direction</td><td>this flag will be set to false if there is no more possible move in this direction </td></tr>
+    <tr><td class="paramname">dx</td><td>X coordinate offset </td></tr>
+    <tr><td class="paramname">dy</td><td>Y coordinate offset </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/Model/Chessman/<a class="el" href="StraightLineMover_8h_source.html">StraightLineMover.h</a></li>
 <li>src/Model/Chessman/StraightLineMover.cpp</li>

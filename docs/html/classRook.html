@@ -91,6 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Rook Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Rook_8h_source.html">Rook.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Rook:</div>
 <div class="dyncontent">
@@ -108,16 +110,14 @@ Collaboration diagram for Rook:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9f7409fbdf4bd35c3b1ca9e6e5586683"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f7409fbdf4bd35c3b1ca9e6e5586683"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Rook</b> (Chessman::Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
+<tr class="memitem:a9f7409fbdf4bd35c3b1ca9e6e5586683"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRook.html#a9f7409fbdf4bd35c3b1ca9e6e5586683">Rook</a> (Chessman::Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
 <tr class="separator:a9f7409fbdf4bd35c3b1ca9e6e5586683"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2626d0996ccd602136381a2839f35222"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classChessman.html">Chessman</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRook.html#a2626d0996ccd602136381a2839f35222">clone</a> () const </td></tr>
 <tr class="separator:a2626d0996ccd602136381a2839f35222"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace5f85fc0608a7782ea0c19ea824d806"><td class="memItemLeft" align="right" valign="top">virtual std::list&lt; <a class="el" href="classMove.html">Move</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRook.html#ace5f85fc0608a7782ea0c19ea824d806">getPossibleMoves</a> (const <a class="el" href="classBoard.html">Board</a> &amp;board) const </td></tr>
 <tr class="separator:ace5f85fc0608a7782ea0c19ea824d806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classStraightLineMover"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classStraightLineMover')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classStraightLineMover.html">StraightLineMover</a></td></tr>
-<tr class="memitem:aab8180cb7f1f6f13177a34e7c62411e6 inherit pub_methods_classStraightLineMover"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab8180cb7f1f6f13177a34e7c62411e6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>StraightLineMover</b> (Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
+<tr class="memitem:aab8180cb7f1f6f13177a34e7c62411e6 inherit pub_methods_classStraightLineMover"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightLineMover.html#aab8180cb7f1f6f13177a34e7c62411e6">StraightLineMover</a> (Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
 <tr class="separator:aab8180cb7f1f6f13177a34e7c62411e6 inherit pub_methods_classStraightLineMover"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classChessman"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classChessman')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classChessman.html">Chessman</a></td></tr>
 <tr class="memitem:a52ea654611769eceb51e3904ff0b596d inherit pub_methods_classChessman"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChessman.html#a52ea654611769eceb51e3904ff0b596d">Chessman</a> (Colour colour, <a class="el" href="classPosition.html">Position</a> position)</td></tr>
@@ -162,8 +162,7 @@ Additional Inherited Members</h2></td></tr>
  }</td></tr>
 <tr class="separator:a3dbab66b075daf23d88439d1190217cb inherit pub_types_classChessman"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classStraightLineMover"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classStraightLineMover')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classStraightLineMover.html">StraightLineMover</a></td></tr>
-<tr class="memitem:adfe56f66941929bf7eff9072e6c8ff3c inherit pro_methods_classStraightLineMover"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfe56f66941929bf7eff9072e6c8ff3c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>checkMove</b> (const <a class="el" href="classBoard.html">Board</a> &amp;board, std::list&lt; <a class="el" href="classMove.html">Move</a> &gt; &amp;moves, bool &amp;direction, int dx, int dy) const </td></tr>
+<tr class="memitem:adfe56f66941929bf7eff9072e6c8ff3c inherit pro_methods_classStraightLineMover"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStraightLineMover.html#adfe56f66941929bf7eff9072e6c8ff3c">checkMove</a> (const <a class="el" href="classBoard.html">Board</a> &amp;board, std::list&lt; <a class="el" href="classMove.html">Move</a> &gt; &amp;moves, bool &amp;direction, int dx, int dy) const </td></tr>
 <tr class="separator:adfe56f66941929bf7eff9072e6c8ff3c inherit pro_methods_classStraightLineMover"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classChessman"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classChessman')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classChessman.html">Chessman</a></td></tr>
 <tr class="memitem:a16ad34cc6a6dc4027e8d5ed7797a0686 inherit pro_attribs_classChessman"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16ad34cc6a6dc4027e8d5ed7797a0686"></a>
@@ -182,6 +181,47 @@ FigureType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></
 <a class="el" href="classPosition.html">Position</a>&#160;</td><td class="memItemRight" valign="bottom"><b>position</b></td></tr>
 <tr class="separator:a1e5a587e0718b9996e45989ac59df71c inherit pro_attribs_classChessman"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h1><a class="el" href="classRook.html">Rook</a></h1>
+<h3><a class="el" href="Rook_8h_source.html">Rook.h</a></h3>
+<p><br />
+ This class represents a rook at the chess game. The rook is a <a class="el" href="classStraightLineMover.html">StraightLineMover</a>, and therefore subclass of it.</p>
+<dl class="section author"><dt>Author</dt><dd>Johannes Hartmann </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 2017-12-12 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9f7409fbdf4bd35c3b1ca9e6e5586683"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rook::Rook </td>
+          <td>(</td>
+          <td class="paramtype">Chessman::Colour&#160;</td>
+          <td class="paramname"><em>colour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPosition.html">Position</a>&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor to create the chessman </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>of the chessman </td></tr>
+    <tr><td class="paramname">position</td><td>of the chessman </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a2626d0996ccd602136381a2839f35222"></a>
 <div class="memitem">
@@ -203,7 +243,7 @@ FigureType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></
   </tr>
 </table>
 </div><div class="memdoc">
-<p>A virtual methode to generate a copy of the current chessman. Since chessman is abstract, tis mehtode functionates as a copyconstructor. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the new copied chessman. </dd></dl>
+<p>This function replaces the copyconstructor. </p><dl class="section return"><dt>Returns</dt><dd>a pointer to the new cloend chessman </dd></dl>
 
 <p>Implements <a class="el" href="classChessman.html#a09f0e6024f9623cf6a1fa8a679459112">Chessman</a>.</p>
 
@@ -230,13 +270,13 @@ FigureType&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This function holds the gamelogic of each chessman. Therefore it is abstract and must be implemeted by each subclass. For a given board it calcualtes all possible moves that this figure can do. If the user is still in check after this move must be checked by the caller. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>For a given board this function returns all possible moves for this figure. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">board</td><td>context on witch all possible moves will be calculated </td></tr>
+    <tr><td class="paramname">board</td><td>to calculate the moves on </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>list of moves that this figure can do. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>list of all possible moves </dd></dl>
 
 <p>Implements <a class="el" href="classChessman.html#a014262041882bbc494153d7e238108cb">Chessman</a>.</p>
 

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['setcapturemove',['setCaptureMove',['../classMove.html#a5082d929df24e6c3f8afa601e1b33da0',1,'Move']]],
-  ['setcurrentposition',['setCurrentPosition',['../classChessman.html#a33dd03dcab313443ea5f58e820926163',1,'Chessman']]]
+  ['operator_3d_3d',['operator==',['../classMove.html#abe8b2d0167fba517580fabf04abcba33',1,'Move::operator==()'],['../classPosition.html#a14c158386ff97f4a9b4eb99832188940',1,'Position::operator==()']]]
 ];
