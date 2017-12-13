@@ -238,6 +238,7 @@ void Board::undoLastMove() {
   currentChessman->setCurrentPosition(origin);
 
   if (m->hasType(Move::Casteling)) {
+    this->changeCurrentColour();
     undoLastMove();
   }
   this->changeCurrentColour();
